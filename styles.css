@@ -400,93 +400,158 @@ section {
 
 /* --- Global Footprint --- */
 .map-container {
-    height: 60vh;
-    background: #eee;
-    /* Light Grey Map */
+    height: 70vh;
+    background: #111;
+    /* Darker technical background */
     position: relative;
     overflow: hidden;
-    border-top: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.map-bg {
+.map-svg {
     width: 100%;
     height: 100%;
-    /* Subtle map hints */
-    background-image:
-        radial-gradient(circle at 20% 40%, #ddd 10%, transparent 11%),
-        radial-gradient(circle at 50% 30%, #ddd 15%, transparent 16%),
-        radial-gradient(circle at 80% 40%, #ddd 12%, transparent 13%);
-    opacity: 0.5;
-}
-
-.city-pin {
     position: absolute;
-    width: 12px;
-    height: 12px;
-    background: var(--accent-gold);
-    border-radius: 50%;
-    box-shadow: 0 0 0 4px rgba(184, 144, 64, 0.2);
-    transform: scale(0);
-    animation: dropPin 0.5s forwards;
-    animation-play-state: paused;
+    top: 0;
+    left: 0;
+    /* Optional: subtle grid background via CSS on container, or here */
 }
 
-.city-pin.visible {
-    animation-play-state: running;
+/* Continents */
+.continents path {
+    fill: #2a2a2a;
+    stroke: #333;
+    stroke-width: 1;
+    transition: all 0.5s ease;
 }
 
-.city-pin::after {
-    content: attr(data-city);
-    position: absolute;
-    top: -30px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: var(--text-light);
-    /* Dark text */
-    font-weight: 700;
-    font-size: 0.9rem;
-    opacity: 0;
-    transition: opacity 0.3s 0.5s;
+.continents path:hover {
+    fill: #333;
+    stroke: #444;
 }
 
-.city-pin.visible::after {
-    opacity: 1;
+/* Flight Paths */
+.flight-line {
+    fill: none;
+    stroke: url(#flightGradient);
+    /* Referenced from SVG defs if possible, else solid color */
+    stroke: var(--accent-gold);
+    stroke-width: 1.5;
+    stroke-dasharray: 10;
+    opacity: 0.6;
+    animation: flightFlow 20s linear infinite;
 }
 
-@keyframes dropPin {
-    0% {
-        transform: scale(3);
-        opacity: 0;
+@keyframes flightFlow {
+    from {
+        stroke-dashoffset: 1000;
     }
 
-    100% {
-        transform: scale(1);
-        opacity: 1;
+    to {
+        stroke-dashoffset: 0;
     }
 }
 
-.flight-paths {
+/* Map Overlay (Pins) */
+.map-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     pointer-events: none;
+    /* Let clicks pass through to map if needed, but buttons need pointer-events auto */
 }
 
-.path-line {
-    fill: none;
-    stroke: var(--accent-gold);
-    stroke-width: 1;
-    stroke-dasharray: 100;
-    stroke-dashoffset: 100;
-    opacity: 0.6;
-    transition: stroke-dashoffset 2s ease-out;
+.map-pin {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    pointer-events: auto;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s;
 }
 
-.path-line.visible {
-    stroke-dashoffset: 0;
+.map-pin:hover {
+    transform: translate(-50%, -50%) scale(1.2);
+}
+
+.pin-core {
+    width: 8px;
+    height: 8px;
+    background: var(--accent-gold);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--accent-gold);
+    z-index: 2;
+}
+
+.pin-pulse {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--accent-gold);
+    border-radius: 50%;
+    opacity: 0;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: translate(-50%, -50%) scale(0.5);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(2);
+        opacity: 0;
+    }
+}
+
+/* Tooltips */
+.map-tooltip {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    background: rgba(20, 20, 20, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--accent-gold);
+    padding: 1.5rem;
+    border-radius: 8px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+    pointer-events: none;
+    z-index: 10;
+    max-width: 250px;
+}
+
+.map-tooltip.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.tooltip-city {
+    font-size: 1.5rem;
+    color: var(--accent-gold);
+    margin-bottom: 0.5rem;
+}
+
+.tooltip-info {
+    font-size: 0.9rem;
+    color: #ccc;
 }
 
 /* --- Philosophy --- */
@@ -708,42 +773,180 @@ footer {
 }
 
 /* --- Responsive --- */
+/* --- Hamburger Menu (Hidden on Desktop) --- */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    z-index: 1001;
+    /* Above nav overlay */
+}
+
+.hamburger .line {
+    width: 25px;
+    height: 2px;
+    background-color: var(--text-light);
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
+/* --- Responsive --- */
 @media (max-width: 768px) {
-    .container-narrow {
-        padding-left: 1rem;
-        padding-right: 1rem;
+
+    /* Navigation */
+    .hamburger {
+        display: block;
     }
 
+    .nav-links {
+        position: fixed;
+        background: var(--bg-obsidian);
+        height: 100vh;
+        width: 100%;
+        top: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transform: translateX(100%);
+        transition: transform 0.4s ease-in-out;
+        z-index: 999;
+        /* Below hamburger */
+    }
+
+    .nav-links.nav-active {
+        transform: translateX(0%);
+    }
+
+    .nav-links li {
+        margin: 1.5rem 0;
+        opacity: 0;
+        /* Animate in */
+    }
+
+    /* Hamburger Animation when Active */
+    .toggle .line:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .toggle .line:nth-child(2) {
+        opacity: 0;
+    }
+
+    .toggle .line:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+
+    /* Typography & Spacing */
+    h1 {
+        font-size: 3.5rem;
+        /* Smaller hero title */
+    }
+
+    .subtitle {
+        font-size: 0.9rem;
+    }
+
+    section {
+        padding: 5rem 0;
+        /* Reduced padding */
+    }
+
+    .section-title {
+        margin-bottom: 3rem;
+        font-size: 2.5rem;
+    }
+
+    .container-narrow {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    /* Legacy (String Theory) - Mobile Reset */
     .timeline-node {
         max-width: 100%;
         margin-right: 0 !important;
         margin-left: 0 !important;
         text-align: left !important;
-        padding: 0 0 0 2rem !important;
+        padding: 0 0 2rem 2rem !important;
+        /* Left Padding for line */
     }
 
     .timeline-node::before {
         left: 0 !important;
         right: auto !important;
-        left: -18px !important;
-        /* Adjust for mobile */
+        left: -8px !important;
+        /* Align dot with line */
     }
 
     .timeline-node:nth-child(odd)::before {
         right: auto;
     }
 
-
     .string-line {
         left: 2rem;
+        /* Move line to left */
     }
 
-    .mastery-grid,
+    .year {
+        font-size: 3rem;
+    }
+
+    /* Mastery (Stacking) */
+    .mastery-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .mastery-text p {
+        padding-left: 1rem;
+        border-left-width: 2px;
+        margin-top: 1rem;
+    }
+
+    .mastery-visual {
+        height: 400px;
+        /* Reduced height */
+    }
+
+    /* Vision (Stacking Glass Cards) */
     .glass-cards {
         grid-template-columns: 1fr;
     }
 
+    .vision-section {
+        padding: 6rem 0;
+    }
+
+    /* Discography */
+    .album-grid {
+        gap: 3rem;
+    }
+
+    .vinyl-wrapper,
+    .album-cover,
+    .vinyl-record {
+        width: 250px;
+        height: 250px;
+    }
+
+    .vinyl-record {
+        width: 240px;
+        height: 240px;
+    }
+
+    /* Global Map */
+    .map-container {
+        height: 40vh;
+    }
+
+    /* Philosophy */
     .zen-quote {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
+        padding: 0 1rem;
+    }
+
+    .philosophy-section {
+        height: auto;
+        padding: 6rem 0;
     }
 }

@@ -25,13 +25,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 entry.target.classList.add('visible');
 
                 // Specific handling for Global Map Pins
-                if (entry.target.classList.contains('city-pin')) {
-                    entry.target.style.animationPlayState = 'running';
-                }
-                if (entry.target.classList.contains('path-line')) {
-                    // SVG stroke animation trigger
-                    entry.target.style.strokeDashoffset = '0';
-                }
+                // (Old logic removed for new CSS-based animations)
+
 
                 observer.unobserve(entry.target);
             }
@@ -41,11 +36,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const revealElements = document.querySelectorAll('.reveal-text, .fade-in, .timeline-node, .glass-card, .zen-quote');
     revealElements.forEach(el => observer.observe(el));
 
-    // Map Specific Observer
-    const mapPins = document.querySelectorAll('.city-pin');
-    const pathLines = document.querySelectorAll('.path-line');
-    mapPins.forEach(pin => observer.observe(pin));
-    pathLines.forEach(line => observer.observe(line));
+    // Map Specific Observer (Cleaned up)
+    // const mapPins... (Removed old selectors)
+
 
 
     // --- 3. Parallax Effect ---
@@ -126,4 +119,88 @@ document.addEventListener('DOMContentLoaded', () => {
 
     sections.forEach(section => navObserver.observe(section));
 
+    // --- 6. Mobile Navigation Toggle ---
+    const hamburger = document.querySelector('.hamburger');
+    const navLinksList = document.querySelector('.nav-links');
+    const links = document.querySelectorAll('.nav-links li');
+
+    if (hamburger) {
+        hamburger.addEventListener('click', () => {
+            // Toggle Nav
+            navLinksList.classList.toggle('nav-active');
+
+            // Hamburger Animation
+            hamburger.classList.toggle('toggle');
+
+            // Animate Links
+            links.forEach((link, index) => {
+                if (link.style.animation) {
+                    link.style.animation = '';
+                } else {
+                    link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
+                }
+            });
+        });
+    }
+
+    // Close menu when link is clicked
+    links.forEach(link => {
+        link.addEventListener('click', () => {
+            navLinksList.classList.remove('nav-active');
+            hamburger.classList.remove('toggle');
+
+            links.forEach(link => {
+                link.style.animation = '';
+            });
+        });
+    });
+
+    // --- 7. Map Tooltip Logic ---
+    const pins = document.querySelectorAll('.map-pin');
+    const tooltip = document.querySelector('.map-tooltip');
+    const tooltipCity = document.querySelector('.tooltip-city');
+    const tooltipInfo = document.querySelector('.tooltip-info');
+
+    pins.forEach(pin => {
+        pin.addEventListener('mouseenter', (e) => {
+            const city = pin.getAttribute('data-city');
+            const info = pin.getAttribute('data-info');
+
+            tooltipCity.textContent = city;
+            tooltipInfo.textContent = info;
+
+            tooltip.classList.add('active');
+
+            // Optional: Position tooltip near the pin if we wanted dynamic positioning
+            // For now, fixed position in CSS is fine or we can match coordinates
+        });
+
+        pin.addEventListener('mouseleave', () => {
+            tooltip.classList.remove('active');
+        });
+
+        // Mobile tap support
+        pin.addEventListener('click', (e) => {
+            // If already active and clicked again, maybe toggle? 
+            // Current hover logic covers most, click can just be safe fallback
+            e.preventDefault();
+        });
+    });
+
 });
+
+// Keyframes for link animation
+const styleSheet = document.createElement("style");
+styleSheet.innerText = `
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+`;
+document.head.appendChild(styleSheet);
