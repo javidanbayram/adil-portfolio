@@ -150,9 +150,8 @@ img {
     height: 120%;
     background: url('assets/hero.png') no-repeat center center/cover;
     /* Hero darkened for better text visibility */
-    filter: brightness(0.35) contrast(1.1);
+    filter: brightness(0.3) contrast(1.2);
     z-index: -1;
-
 }
 
 /* Hero text must act as if on dark bg */
@@ -640,14 +639,16 @@ section {
 .brand-logo {
     font-family: var(--font-heading);
     font-size: 1.5rem;
-    color: #fff;
-    /* White initially */
+    color: #ffffff;
+    /* Explicit White */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     font-weight: 700;
     transition: color 0.4s;
 }
 
 .navbar.scrolled .brand-logo {
     color: var(--text-light);
+    text-shadow: none;
 }
 
 .nav-links {
@@ -663,13 +664,15 @@ section {
     font-weight: 500;
     position: relative;
     padding-bottom: 5px;
-    color: #fff;
-    /* White initially */
+    color: #ffffff;
+    /* Explicit White */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     transition: color 0.4s;
 }
 
 .navbar.scrolled .nav-links a {
     color: var(--text-light);
+    text-shadow: none;
 }
 
 .nav-links a::after {
@@ -679,7 +682,7 @@ section {
     left: 0;
     width: 0;
     height: 1px;
-    background: #fff;
+    background: #ffffff;
     /* White underline */
     transition: width 0.3s, background 0.3s;
 }
