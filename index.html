@@ -21,16 +21,21 @@
                 <div class="line"></div>
             </div>
             <ul class="nav-links">
-                <li><a href="#legacy">Legacy</a></li>
-                <li><a href="#mastery">Mastery</a></li>
-                <li><a href="#vision">Vision</a></li>
-                <li><a href="#music">Discography</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#legacy" data-i18n="nav_legacy">Legacy</a></li>
+                <li><a href="#mastery" data-i18n="nav_mastery">Mastery</a></li>
+                <li><a href="#vision" data-i18n="nav_vision">Vision</a></li>
+                <li><a href="#music" data-i18n="nav_discography">Discography</a></li>
+                <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
             </ul>
-            <div class="lang-selector">
-                <a href="#" class="lang-item active" title="Azerbaijani"><span class="flag">🇦🇿</span> AZ</a>
-                <a href="#" class="lang-item" title="English"><span class="flag">🇬🇧</span> EN</a>
-                <a href="#" class="lang-item" title="Russian"><span class="flag">🇷🇺</span> RU</a>
+            <div class="lang-dropdown">
+                <button class="lang-main">
+                    <span class="flag">🇦🇿</span> <span class="lang-code">AZ</span> <i class="chevron"></i>
+                </button>
+                <div class="lang-menu">
+                    <div class="lang-option" data-lang="az"><span class="flag">🇦🇿</span> Azərbaycan</div>
+                    <div class="lang-option" data-lang="en"><span class="flag">🇬🇧</span> English</div>
+                    <div class="lang-option" data-lang="ru"><span class="flag">🇷🇺</span> Русский</div>
+                </div>
             </div>
         </div>
     </nav>
@@ -41,8 +46,9 @@
     <header class="hero" id="hero">
         <div class="hero-bg parallax" data-speed="0.2"></div>
         <div class="hero-content">
-            <h1 class="reveal-text">Adil<br><span class="gold-text">Bayramov</span></h1>
-            <p class="subtitle reveal-text" style="transition-delay: 0.2s;">The Symphonic Soul of Azerbaijan</p>
+            <h1 class="reveal-text" data-i18n="hero_title">Adil<br><span class="gold-text">Bayramov</span></h1>
+            <p class="subtitle reveal-text" style="transition-delay: 0.2s;" data-i18n="hero_subtitle">The Symphonic Soul
+                of Azerbaijan</p>
         </div>
         <div class="scroll-indicator">
             <div class="arrow"></div>
@@ -237,20 +243,20 @@
     <!-- Upcoming Events -->
     <section id="events" class="events-section">
         <div class="container">
-            <h2 class="section-title reveal-text">The Next Resonance</h2>
+            <h2 class="section-title reveal-text" data-i18n="section_events">The Next Resonance</h2>
             <div class="events-list">
                 <!-- Event 1 -->
                 <div class="event-item reveal-text" style="transition-delay: 0.1s;">
                     <div class="event-date">
                         <span class="day">15</span>
-                        <span class="month">OCT</span>
+                        <span class="month" data-i18n="month_oct">OCT</span>
                     </div>
                     <div class="event-info">
                         <h3>Royal Albert Hall</h3>
                         <p class="event-location">LONDON, UK</p>
                     </div>
                     <div class="event-action">
-                        <a href="#" class="ticket-btn">Get Tickets</a>
+                        <a href="#" class="ticket-btn" data-i18n="btn_tickets">Get Tickets</a>
                     </div>
                 </div>
 
@@ -258,14 +264,14 @@
                 <div class="event-item reveal-text" style="transition-delay: 0.2s;">
                     <div class="event-date">
                         <span class="day">22</span>
-                        <span class="month">NOV</span>
+                        <span class="month" data-i18n="month_nov">NOV</span>
                     </div>
                     <div class="event-info">
                         <h3>Berlin Philharmonie</h3>
                         <p class="event-location">BERLIN, DE</p>
                     </div>
                     <div class="event-action">
-                        <a href="#" class="ticket-btn">Get Tickets</a>
+                        <a href="#" class="ticket-btn" data-i18n="btn_tickets">Get Tickets</a>
                     </div>
                 </div>
 
@@ -273,14 +279,14 @@
                 <div class="event-item reveal-text" style="transition-delay: 0.3s;">
                     <div class="event-date">
                         <span class="day">05</span>
-                        <span class="month">DEC</span>
+                        <span class="month" data-i18n="month_dec">DEC</span>
                     </div>
                     <div class="event-info">
                         <h3>Heydar Aliyev Center</h3>
-                        <p class="event-location">BAKU, AZ</p>
+                        <p class="event-location" data-i18n="city_baku">BAKU, AZ</p>
                     </div>
                     <div class="event-action">
-                        <a href="#" class="ticket-btn">Sold Out</a>
+                        <a href="#" class="ticket-btn" data-i18n="btn_soldout">Sold Out</a>
                     </div>
                 </div>
             </div>
@@ -291,7 +297,8 @@
     <section id="philosophy" class="philosophy-section">
         <div class="container">
             <blockquote class="zen-quote reveal-text">
-                "Music is not played with hands.<br> It is played with silence between the notes."
+                "<span data-i18n="quote_text">Music is not played with hands.<br> It is played with silence between the
+                    notes.</span>"
                 <footer class="gold-text">— Adil Bayramov</footer>
             </blockquote>
         </div>
@@ -314,30 +321,30 @@
     <footer id="contact">
         <div class="footer-container">
             <div class="footer-info reveal-text">
-                <h3>Contact</h3>
-                <p>For booking inquiries, masterclasses, and orchestral collaborations.</p>
+                <h3 data-i18n="footer_contact">Contact</h3>
+                <p data-i18n="footer_text">For booking inquiries, masterclasses, and orchestral collaborations.</p>
                 <p style="margin-top: 2rem; color: var(--accent-gold);">booking@adilbayramov.art</p>
                 <p>+994 50 123 45 67</p>
                 <div class="social-links" style="margin-top: 2rem; opacity: 0.5;">
-                    <p>Baku • Paris • New York</p>
+                    <p data-i18n="footer_cities">Baku • Paris • New York</p>
                 </div>
             </div>
 
             <form class="contact-form reveal-text" style="transition-delay: 0.2s;">
                 <div class="form-group">
-                    <input type="text" placeholder="Name" required>
+                    <input type="text" placeholder="Name" required data-i18n-placeholder="form_name">
                 </div>
                 <div class="form-group">
-                    <input type="email" placeholder="Email" required>
+                    <input type="email" placeholder="Email" required data-i18n-placeholder="form_email">
                 </div>
                 <div class="form-group">
-                    <textarea rows="4" placeholder="Message" required></textarea>
+                    <textarea rows="4" placeholder="Message" required data-i18n-placeholder="form_message"></textarea>
                 </div>
-                <button type="submit" class="submit-btn">Send Message</button>
+                <button type="submit" class="submit-btn" data-i18n="form_send">Send Message</button>
             </form>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 Adil Bayramov. All Rights Reserved.</p>
+            <p>&copy; 2025 Adil Bayramov. <span data-i18n="footer_rights">All Rights Reserved.</span></p>
         </div>
     </footer>
 
