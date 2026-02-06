@@ -1222,6 +1222,394 @@ footer {
 }
 
 
+
+/* --- NEW SECTIONS STYLES --- */
+
+/* 1. Anatomy Section */
+.anatomy-section {
+    background: #f4f4f4;
+    padding: 8rem 0;
+    overflow: hidden;
+}
+
+.anatomy-container {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+.anatomy-img {
+    height: 80vh;
+    max-height: 800px;
+    width: auto;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.2));
+}
+
+.hotspot {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    z-index: 10;
+}
+
+.hotspot-dot {
+    width: 12px;
+    height: 12px;
+    background: var(--accent-gold);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.hotspot-pulse {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--accent-gold);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+.anatomy-card {
+    position: absolute;
+    top: 50%;
+    left: 110%;
+    /* To the right of the image */
+    width: 250px;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    padding: 1.5rem;
+    border-left: 3px solid var(--accent-gold);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: all 0.4s ease;
+    pointer-events: none;
+    z-index: 20;
+}
+
+/* Specific card positioning tweaks if needed, but JS will handle active state */
+.anatomy-card.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-50%);
+    /* Centered vertically relative to hotspot if appended there, or logic needed */
+    /* Simplifying: fixed positions or absolute relative to container */
+    top: auto;
+    left: auto;
+}
+
+/* Alternative: Cards are siblings to hotspots, so we position them manually or via JS. 
+   Let's position them absolute to the container for simplicity. */
+#info-bowl {
+    top: 70%;
+    right: -280px;
+    left: auto;
+}
+
+#info-skin {
+    top: 60%;
+    right: -280px;
+    left: auto;
+}
+
+#info-frets {
+    top: 25%;
+    right: -280px;
+    left: auto;
+}
+
+
+/* Responsive Anatomy */
+@media (max-width: 768px) {
+    .anatomy-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .anatomy-img {
+        height: auto;
+        width: 100%;
+        max-height: 500px;
+    }
+
+    /* On mobile, turn hotpots into simple indicators or keep them? 
+       Let's keep them but make cards appear below the image as a static block when active 
+       OR make them modal-like. 
+       Simpler approach: Cards stack below.
+    */
+    .anatomy-card {
+        position: fixed;
+        /* Modal style for mobile is often better for detail views */
+        top: 50%;
+        left: 50%;
+        right: auto;
+        transform: translate(-50%, -50%) scale(0.9);
+        width: 80%;
+        z-index: 1005;
+        box-shadow: 0 0 500px rgba(0, 0, 0, 0.5);
+        /* Dim background roughly */
+    }
+
+    .anatomy-card.active {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+.anatomy-card.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+
+/* 2. Echoes (Press) */
+.press-section {
+    background: #111;
+    padding: 3rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+}
+
+.marquee-wrapper {
+    width: 100%;
+    overflow: hidden;
+}
+
+.marquee-content {
+    display: inline-block;
+    animation: marquee 30s linear infinite;
+    padding-left: 100%;
+    /* Start offset */
+}
+
+.press-item {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: #444;
+    /* Dimmed */
+    margin: 0 2rem;
+    font-style: italic;
+}
+
+.press-item:hover {
+    color: #fff;
+    transition: color 0.3s;
+}
+
+.separator {
+    color: var(--accent-gold);
+    font-size: 1.5rem;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.marquee-content:hover {
+    animation-play-state: paused;
+}
+
+
+/* 3. Video Vault */
+.video-section {
+    background: #000;
+    padding: 8rem 0;
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.video-card {
+    cursor: pointer;
+    /* group: video-card; - Removed invalid property */
+}
+
+.video-thumb {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    filter: grayscale(100%);
+    transition: filter 0.5s;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.video-card:hover .video-thumb {
+    filter: grayscale(0%);
+}
+
+.play-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    width: 50px;
+    height: 50px;
+    background: rgba(184, 144, 64, 0.8);
+    color: #000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    opacity: 0;
+    transition: all 0.3s;
+}
+
+.video-card:hover .play-overlay {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.video-info {
+    margin-top: 1rem;
+}
+
+.video-info h3 {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-bottom: 0.2rem;
+}
+
+.video-info p {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Video Modal */
+.video-modal {
+    display: none;
+    position: fixed;
+    z-index: 3000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    align-items: center;
+    justify-content: center;
+}
+
+.video-container {
+    width: 80%;
+    max-width: 1000px;
+    aspect-ratio: 16/9;
+    box-shadow: 0 0 50px rgba(184, 144, 64, 0.2);
+}
+
+#video-frame {
+    width: 100%;
+    height: 100%;
+}
+
+.video-close {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    color: #fff;
+    font-size: 40px;
+    cursor: pointer;
+    z-index: 3001;
+}
+
+/* 4. Masterclass */
+.masterclass-section {
+    padding: 8rem 0;
+    background: #fff;
+}
+
+.masterclass-container {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+
+.masterclass-image {
+    flex: 1;
+}
+
+.masterclass-image img {
+    border-radius: 4px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+    animation: floatImage 6s ease-in-out infinite;
+}
+
+@keyframes floatImage {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.masterclass-content {
+    flex: 1;
+}
+
+.masterclass-list {
+    list-style: none;
+    margin: 2rem 0;
+}
+
+.masterclass-list li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #eee;
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    color: var(--text-slate);
+}
+
+.gold-btn {
+    display: inline-block;
+    background: var(--accent-gold);
+    color: #fff;
+    padding: 1rem 3rem;
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+.gold-btn:hover {
+    background: #96752e;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(184, 144, 64, 0.2);
+}
+
+
 /* --- Responsive --- */
 @media (max-width: 768px) {
 

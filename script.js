@@ -568,6 +568,97 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+
+    // --- 13. Anatomy Hotspots ---
+    const hotspots = document.querySelectorAll('.hotspot');
+    const anatomyCards = document.querySelectorAll('.anatomy-card');
+    const anatomyContainer = document.querySelector('.anatomy-container');
+
+    hotspots.forEach(hotspot => {
+        hotspot.addEventListener('mouseenter', () => {
+            const targetId = hotspot.getAttribute('data-target');
+            // Hide all first
+            anatomyCards.forEach(card => card.classList.remove('active'));
+            // Show target
+            const targetCard = document.getElementById(targetId);
+            if (targetCard) targetCard.classList.add('active');
+        });
+
+        // Also handling click for mobile
+        hotspot.addEventListener('click', (e) => {
+            e.stopPropagation(); // prevent body click from closing immediately if we add that later
+            const targetId = hotspot.getAttribute('data-target');
+            anatomyCards.forEach(card => card.classList.remove('active'));
+            const targetCard = document.getElementById(targetId);
+            if (targetCard) targetCard.classList.add('active');
+        });
+    });
+
+    // Hide cards when leaving the container area
+    if (anatomyContainer) {
+        anatomyContainer.addEventListener('mouseleave', () => {
+            anatomyCards.forEach(card => card.classList.remove('active'));
+        });
+    }
+
+
+    // --- 14. Video Modal Logic ---
+    window.openVideoModal = function (videoUrl) {
+        const modal = document.getElementById('video-modal');
+        const iframe = document.getElementById('video-frame');
+
+        // Ensure protocol if missing (just in case)
+        if (videoUrl.startsWith('//')) {
+            videoUrl = 'https:' + videoUrl;
+        }
+
+        // Auto-play param if not present
+        if (videoUrl.indexOf('autoplay=1') === -1) {
+            videoUrl += (videoUrl.indexOf('?') === -1 ? '?' : '&') + 'autoplay=1';
+        }
+
+        iframe.src = videoUrl;
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    };
+
+    window.closeVideoModal = function () {
+        const modal = document.getElementById('video-modal');
+        const iframe = document.getElementById('video-frame');
+
+        modal.style.display = 'none';
+        iframe.src = ''; // Stop video
+        document.body.style.overflow = 'auto';
+    };
+
+    const videoModal = document.getElementById('video-modal');
+    if (videoModal) {
+        videoModal.addEventListener('click', (e) => {
+            if (e.target === videoModal) {
+                closeVideoModal();
+            }
+        });
+    }
+
+    // --- 15. Masterclass 'Apply Now' Logic ---
+    const applyBtns = document.querySelectorAll('a[href="#contact"]');
+    const contactMsg = document.querySelector('.contact-form textarea');
+
+    applyBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            // Check if it is specifically the Masterclass button
+            if (btn.innerText.includes('Apply')) {
+                if (contactMsg) {
+                    // small delay to allow scroll to happen
+                    setTimeout(() => {
+                        contactMsg.value = "I am interested in applying for the Masterclass. [Please include your experience level here]";
+                        contactMsg.focus();
+                    }, 500);
+                }
+            }
+        });
+    });
+
 });
 
 // Keyframes for link animation

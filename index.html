@@ -98,6 +98,54 @@
         </div>
     </section>
 
+    <!-- NEW SECTION: Anatomy of the Tar -->
+    <section id="anatomy" class="anatomy-section">
+        <div class="container">
+            <h2 class="section-title reveal-text" data-i18n="section_anatomy">Anatomy of the Tar</h2>
+            <div class="anatomy-container">
+                <img src="assets/tar_full_vertical.png" alt="Full Tar Instrument" class="anatomy-img"
+                    onerror="this.src='assets/hero.png'">
+
+                <!-- Hotspot 1: The Bowl -->
+                <div class="hotspot" style="top: 75%; left: 50%;" data-target="info-bowl">
+                    <div class="hotspot-dot"></div>
+                    <div class="hotspot-pulse"></div>
+                </div>
+
+                <!-- Hotspot 2: The Skin -->
+                <div class="hotspot" style="top: 65%; left: 50%;" data-target="info-skin">
+                    <div class="hotspot-dot"></div>
+                    <div class="hotspot-pulse"></div>
+                </div>
+
+                <!-- Hotspot 3: The Frets -->
+                <div class="hotspot" style="top: 30%; left: 50%;" data-target="info-frets">
+                    <div class="hotspot-dot"></div>
+                    <div class="hotspot-pulse"></div>
+                </div>
+
+                <!-- Info Cards (Hidden by default) -->
+                <div id="info-bowl" class="anatomy-card">
+                    <h3 data-i18n="anatomy_bowl_title">The Bowl (Chanag)</h3>
+                    <p data-i18n="anatomy_bowl_text">Carved from a single block of mulberry wood, aged for decades to
+                        ensure perfect resonance.</p>
+                </div>
+
+                <div id="info-skin" class="anatomy-card">
+                    <h3 data-i18n="anatomy_skin_title">The Heart (Perde)</h3>
+                    <p data-i18n="anatomy_skin_text">Ox pericardium membrane that gives the Tar its unique, melancholic
+                        timbre.</p>
+                </div>
+
+                <div id="info-frets" class="anatomy-card">
+                    <h3 data-i18n="anatomy_frets_title">The Frets</h3>
+                    <p data-i18n="anatomy_frets_text">Adjustable gut strings allowing for the microtonal nuances
+                        essential to Muğam.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Vision / Future -->
     <section id="vision" class="vision-section">
         <div class="vision-bg"></div>
@@ -113,6 +161,32 @@
                     <p data-i18n="vision_innov_text">Merging traditional Muğam with contemporary orchestral
                         arrangements.</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW SECTION: Echoes of the World (Press) -->
+    <section id="press" class="press-section">
+        <div class="marquee-wrapper">
+            <div class="marquee-content">
+                <span class="press-item">"A virtuoso performance that transcends borders." — <span class="gold-text">Le
+                        Monde</span></span>
+                <span class="separator">✦</span>
+                <span class="press-item">"The symphonic soul of the Caspian." — <span class="gold-text">The New York
+                        Times</span></span>
+                <span class="separator">✦</span>
+                <span class="press-item">"Mastery in its purest form." — <span class="gold-text">BBC Radio
+                        3</span></span>
+                <span class="separator">✦</span>
+                <span class="press-item">"Hypnotic and profound." — <span class="gold-text">Deutsche Welle</span></span>
+                <span class="separator">✦</span>
+                <!-- Duplicate for infinite scroll -->
+                <span class="press-item">"A virtuoso performance that transcends borders." — <span class="gold-text">Le
+                        Monde</span></span>
+                <span class="separator">✦</span>
+                <span class="press-item">"The symphonic soul of the Caspian." — <span class="gold-text">The New York
+                        Times</span></span>
+                <span class="separator">✦</span>
             </div>
         </div>
     </section>
@@ -156,6 +230,60 @@
             </div>
         </div>
     </section>
+
+    <!-- NEW SECTION: Video Vault -->
+    <section id="videos" class="video-section">
+        <div class="container">
+            <h2 class="section-title reveal-text" data-i18n="section_videos">The Video Vault</h2>
+            <div class="video-grid">
+                <!-- Video 1 -->
+                <div class="video-card reveal-text"
+                    onclick="openVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
+                    <div class="video-thumb" style="background-image: url('assets/gallery1.png');">
+                        <div class="play-overlay">▶</div>
+                    </div>
+                    <div class="video-info">
+                        <h3>Live at Royal Albert Hall</h3>
+                        <p>London, 2018</p>
+                    </div>
+                </div>
+                <!-- Video 2 -->
+                <div class="video-card reveal-text"
+                    onclick="openVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"
+                    style="transition-delay: 0.1s;">
+                    <div class="video-thumb" style="background-image: url('assets/hero.png');">
+                        <div class="play-overlay">▶</div>
+                    </div>
+                    <div class="video-info">
+                        <h3>Symphony of the East</h3>
+                        <p>Baku, 2012</p>
+                    </div>
+                </div>
+                <!-- Video 3 -->
+                <div class="video-card reveal-text"
+                    onclick="openVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"
+                    style="transition-delay: 0.2s;">
+                    <div class="video-thumb" style="background-image: url('assets/macro_tar.png');">
+                        <div class="play-overlay">▶</div>
+                    </div>
+                    <div class="video-info">
+                        <h3>Masterclass: The Segah Mode</h3>
+                        <p>Documentary Excerpt</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Modal -->
+    <div id="video-modal" class="video-modal">
+        <span class="video-close" onclick="closeVideoModal()">&times;</span>
+        <div class="video-container">
+            <iframe id="video-frame" src="" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+        </div>
+    </div>
 
     <!-- Soundscape -->
     <section id="soundscape" class="soundscape-section">
@@ -381,6 +509,26 @@
         <img id="lightbox-img" class="lightbox-content">
         <div id="lightbox-caption" class="lightbox-caption"></div>
     </div>
+
+    <!-- NEW SECTION: Masterclass -->
+    <section id="masterclass" class="masterclass-section">
+        <div class="container masterclass-container">
+            <div class="masterclass-image reveal-text">
+                <img src="assets/legacy_archive.png" alt="Masterclass">
+            </div>
+            <div class="masterclass-content reveal-text">
+                <h2 class="section-title" style="text-align: left;" data-i18n="section_masterclass">Masterclass</h2>
+                <p data-i18n="masterclass_text">Join Adil Bayramov for an immersive journey into the philosophy and
+                    technique of the Tar. Open to advanced students and conservatories worldwide.</p>
+                <ul class="masterclass-list">
+                    <li data-i18n="masterclass_li1">Traditional Muğam Theory</li>
+                    <li data-i18n="masterclass_li2">Advanced Picking Techniques</li>
+                    <li data-i18n="masterclass_li3">Orchestral Improvisation</li>
+                </ul>
+                <a href="#contact" class="gold-btn" data-i18n="btn_apply">Apply Now</a>
+            </div>
+        </div>
+    </section>
 
     <footer id="contact">
         <div class="footer-container">
