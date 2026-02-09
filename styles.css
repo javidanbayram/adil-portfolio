@@ -1,27 +1,40 @@
 /* Google Fonts Import */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
 
 :root {
-    --bg-obsidian: #F9F9F7;
-    /* Porcelain White */
-    --text-slate: #4A4A4A;
-    /* Dark Charcoal */
-    --text-light: #1A1A1A;
-    /* Near Black for headings */
+    /* Premium Dark Palette */
+    --bg-obsidian: #050505;
+    /* Deepest Black */
+    --bg-charcoal: #0F0F0F;
+    /* Rich Dark Grey */
+    --bg-card: #141414;
+    /* Slightly lighter for cards */
 
-    --accent-gold: #B89040;
-    /* Darker Gold for contrast */
-    --accent-champagne: #E6D8B5;
+    --text-primary: #F0F0F0;
+    /* Off-white for main text */
+    --text-secondary: #A0A0A0;
+    /* Muted grey */
+    --text-muted: #666666;
+    /* Darker grey */
 
-    --glass-panel: rgba(255, 255, 255, 0.7);
-    /* Frosted Glass */
-    --glass-border: rgba(184, 144, 64, 0.3);
+    --accent-gold: #D4AF37;
+    /* Metallic Gold */
+    --accent-gold-dim: #8A701E;
+    /* Dim Gold */
+    --accent-champagne: #F3E5AB;
+    /* Highlight */
+
+    --glass-panel: rgba(20, 20, 20, 0.7);
+    --glass-border: rgba(212, 175, 55, 0.15);
+    /* Subtle Gold Border */
 
     --font-heading: 'Playfair Display', serif;
     --font-body: 'Montserrat', sans-serif;
 
     --transition-slow: 1.2s cubic-bezier(0.16, 1, 0.3, 1);
     --transition-med: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+
+    --shadow-gold: 0 10px 40px -10px rgba(212, 175, 55, 0.15);
 }
 
 * {
@@ -32,14 +45,14 @@
 
 body {
     background-color: var(--bg-obsidian);
-    color: var(--text-slate);
+    color: var(--text-primary);
     font-family: var(--font-body);
     line-height: 1.8;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
 }
 
-/* Texture Overlay */
+/* Texture Overlay - refined grain */
 body::before {
     content: "";
     position: fixed;
@@ -47,10 +60,29 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    /* Subtle noise for texture */
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
     pointer-events: none;
     z-index: 9999;
+    mix-blend-mode: overlay;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-obsidian);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, var(--accent-gold-dim), var(--accent-gold));
+    border-radius: 4px;
+    border: 2px solid var(--bg-obsidian);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-gold);
 }
 
 h1,
@@ -58,19 +90,25 @@ h2,
 h3,
 h4 {
     font-family: var(--font-heading);
-    color: var(--text-light);
+    color: var(--text-primary);
     font-weight: 400;
 }
 
 h1 {
-    font-size: clamp(3rem, 5vw, 6rem);
+    font-size: clamp(3.5rem, 6vw, 7rem);
     letter-spacing: -0.02em;
-    line-height: 1.1;
+    line-height: 1.05;
 }
 
 h2 {
-    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
     color: var(--accent-gold);
+    margin-bottom: 3rem;
+    letter-spacing: -0.01em;
+}
+
+p {
+    color: var(--text-secondary);
 }
 
 a {
@@ -96,7 +134,6 @@ img {
     margin: 0 auto;
     position: relative;
     padding-bottom: 4rem;
-    /* Spacing */
 }
 
 .gold-text {
@@ -111,13 +148,22 @@ img {
 /* --- Animations --- */
 .reveal-text {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px);
     transition: all var(--transition-med);
 }
 
 .reveal-text.visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Glassmorphism Utility */
+.glass-panel {
+    background: rgba(20, 20, 20, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
 }
 
 .string-line {
@@ -128,7 +174,9 @@ img {
     height: 0%;
     background: linear-gradient(to bottom, transparent, var(--accent-gold), transparent);
     z-index: 50;
-    transition: height 0.5s ease-out;
+    opacity: 0.5;
+    transition: height 0.1s linear;
+    box-shadow: 0 0 10px var(--accent-gold);
 }
 
 /* --- Hero Section --- */
@@ -149,8 +197,19 @@ img {
     width: 120%;
     height: 120%;
     background: url('assets/hero.png') no-repeat center center/cover;
-    /* Hero darkened for better text visibility */
-    filter: brightness(0.3) contrast(1.2);
+    filter: brightness(0.4) contrast(1.1) grayscale(20%);
+    z-index: -1;
+}
+
+/* Overlay gradient for depth */
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(0, 0, 0, 0.2) 0%, rgba(5, 5, 5, 0.8) 100%);
     z-index: -1;
 }
 
@@ -1313,21 +1372,59 @@ footer {
 /* Alternative: Cards are siblings to hotspots, so we position them manually or via JS. 
    Let's position them absolute to the container for simplicity. */
 #info-bowl {
-    top: 70%;
-    right: -280px;
+    top: 60%;
+    right: -250px;
     left: auto;
 }
 
 #info-skin {
-    top: 60%;
-    right: -280px;
-    left: auto;
+    top: 50%;
+    left: -250px;
+    right: auto;
+    border-left: none;
+    border-right: 3px solid var(--accent-gold);
+    text-align: right;
 }
 
 #info-frets {
-    top: 25%;
-    right: -280px;
+    top: 20%;
+    right: -250px;
     left: auto;
+}
+
+/* Scanning Line Animation */
+.anatomy-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--accent-gold), transparent);
+    box-shadow: 0 0 15px var(--accent-gold);
+    opacity: 0.5;
+    animation: scan 4s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes scan {
+    0% {
+        top: 10%;
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0.8;
+    }
+
+    80% {
+        opacity: 0.8;
+    }
+
+    100% {
+        top: 90%;
+        opacity: 0;
+    }
 }
 
 
@@ -1413,6 +1510,8 @@ footer {
 .separator {
     color: var(--accent-gold);
     font-size: 1.5rem;
+    vertical-align: middle;
+    margin: 0 1rem;
 }
 
 @keyframes marquee {
@@ -1496,8 +1595,10 @@ footer {
 }
 
 .video-info p {
-    color: #666;
-    font-size: 0.9rem;
+    color: #888;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
 }
 
 /* Video Modal */
@@ -1545,7 +1646,9 @@ footer {
 .masterclass-container {
     display: flex;
     align-items: center;
-    gap: 4rem;
+    gap: 6rem;
+    flex-wrap: wrap;
+    /* For mobile responsiveness */
 }
 
 .masterclass-image {
@@ -1578,35 +1681,45 @@ footer {
 
 .masterclass-list {
     list-style: none;
-    margin: 2rem 0;
+    margin-bottom: 2.5rem;
 }
 
 .masterclass-list li {
-    padding: 0.5rem 0;
-    border-bottom: 1px solid #eee;
-    font-family: var(--font-heading);
     font-size: 1.1rem;
-    color: var(--text-slate);
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    padding-left: 2rem;
+    position: relative;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 1rem;
+}
+
+.masterclass-list li::before {
+    content: '✦';
+    position: absolute;
+    left: 0;
+    color: var(--accent-gold);
+    font-size: 0.8rem;
+    top: 4px;
 }
 
 .gold-btn {
     display: inline-block;
-    background: var(--accent-gold);
-    color: #fff;
     padding: 1rem 3rem;
+    background: var(--accent-gold);
+    color: #000;
     font-family: var(--font-heading);
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    font-size: 0.9rem;
-    transition: all 0.3s;
-    border: none;
-    cursor: pointer;
+    transition: all 0.3s ease;
+    clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0% 100%, 0% 30%);
 }
 
 .gold-btn:hover {
-    background: #96752e;
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(184, 144, 64, 0.2);
+    background: #fff;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
 }
 
 

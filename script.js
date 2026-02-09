@@ -50,8 +50,27 @@ document.addEventListener('DOMContentLoaded', () => {
         parallaxElements.forEach(el => {
             const speed = el.dataset.speed || 0.2;
             const offset = scrolled * speed;
-            // Apply translation. vertical only for now.
-            el.style.transform = `translateY(${offset}px)`;
+            // Apply translation with requestAnimationFrame for smoothness
+            window.requestAnimationFrame(() => {
+                el.style.transform = `translateY(${offset}px)`;
+            });
+        });
+    });
+
+    // --- 3.1 Magnetic Buttons ---
+    const magneticBtns = document.querySelectorAll('.gold-btn, .ticket-btn, .submit-btn, .maqam-btn');
+
+    magneticBtns.forEach(btn => {
+        btn.addEventListener('mousemove', (e) => {
+            const rect = btn.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+
+            btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+        });
+
+        btn.addEventListener('mouseleave', () => {
+            btn.style.transform = 'translate(0, 0)';
         });
     });
 
@@ -602,10 +621,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    // --- 14. Video Modal Logic ---
+    // --- 14. Video Modal Logic (Cinema Mode) ---
     window.openVideoModal = function (videoUrl) {
         const modal = document.getElementById('video-modal');
         const iframe = document.getElementById('video-frame');
+        const navbar = document.querySelector('.navbar');
 
         // Ensure protocol if missing (just in case)
         if (videoUrl.startsWith('//')) {
@@ -620,15 +640,25 @@ document.addEventListener('DOMContentLoaded', () => {
         iframe.src = videoUrl;
         modal.style.display = 'flex';
         document.body.style.overflow = 'hidden';
+
+        // Hide navbar to prevent z-index issues / enhance immersion
+        if (navbar) navbar.style.display = 'none';
+
+        // Add cinema mode class to body if you want to dim other things (modal does this but just in case)
+        document.body.classList.add('cinema-mode');
     };
 
     window.closeVideoModal = function () {
         const modal = document.getElementById('video-modal');
         const iframe = document.getElementById('video-frame');
+        const navbar = document.querySelector('.navbar');
 
         modal.style.display = 'none';
         iframe.src = ''; // Stop video
         document.body.style.overflow = 'auto';
+
+        if (navbar) navbar.style.display = 'block'; // Restore navbar
+        document.body.classList.remove('cinema-mode');
     };
 
     const videoModal = document.getElementById('video-modal');
