@@ -2,30 +2,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
 
 :root {
-    /* Premium Dark Palette */
-    --bg-obsidian: #050505;
-    /* Deepest Black */
-    --bg-charcoal: #0F0F0F;
-    /* Rich Dark Grey */
-    --bg-card: #141414;
-    /* Slightly lighter for cards */
+    /* Premium Midnight Blue & Bronze Palette */
+    --bg-obsidian: #02040a;
+    /* Deep Night Blue */
+    --bg-charcoal: #0a1120;
+    /* Dark Slate Blue */
+    --bg-card: #0f172a;
+    /* Card Background */
 
-    --text-primary: #F0F0F0;
-    /* Off-white for main text */
-    --text-secondary: #A0A0A0;
-    /* Muted grey */
-    --text-muted: #666666;
-    /* Darker grey */
+    --text-primary: #e0e6ed;
+    /* Cool White */
+    --text-secondary: #94a3b8;
+    /* Muted Blue-Grey */
+    --text-muted: #64748b;
+    /* Slate */
 
-    --accent-gold: #D4AF37;
-    /* Metallic Gold */
-    --accent-gold-dim: #8A701E;
-    /* Dim Gold */
-    --accent-champagne: #F3E5AB;
-    /* Highlight */
+    --accent-gold: #cd7f32;
+    /* Bronze */
+    --accent-gold-dim: #8b5a2b;
+    /* Dark Bronze */
+    --accent-champagne: #e2c08d;
+    /* Pale Bronze Highlight */
 
-    --glass-panel: rgba(20, 20, 20, 0.7);
-    --glass-border: rgba(212, 175, 55, 0.15);
+    --glass-panel: rgba(15, 23, 42, 0.7);
+    --glass-border: rgba(205, 127, 50, 0.2);
     /* Subtle Gold Border */
 
     --font-heading: 'Playfair Display', serif;
@@ -180,38 +180,91 @@ img {
 }
 
 /* --- Hero Section --- */
-.hero {
-    position: relative;
-    height: 100vh;
+/* --- Split Hero Section --- */
+.split-hero {
     display: flex;
-    align-items: center;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    padding-top: 80px;
+    /* Nav spacing */
+}
+
+.hero-left {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-    text-align: center;
+    padding: 0 5vw;
+    z-index: 2;
+    background: var(--bg-obsidian);
+}
+
+.hero-right {
+    width: 50%;
+    height: 100%;
+    position: relative;
     overflow: hidden;
 }
 
-.hero-bg {
-    position: absolute;
-    top: -10%;
-    left: -10%;
-    width: 120%;
-    height: 120%;
-    background: url('assets/hero.png') no-repeat center center/cover;
-    filter: brightness(0.4) contrast(1.1) grayscale(20%);
-    z-index: -1;
-}
-
-/* Overlay gradient for depth */
-.hero::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
+.hero-image-reveal {
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at center, rgba(0, 0, 0, 0.2) 0%, rgba(5, 5, 5, 0.8) 100%);
-    z-index: -1;
+    clip-path: inset(0 0 0 0);
+    animation: revealImage 1.5s cubic-bezier(0.77, 0, 0.175, 1);
 }
+
+.hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.1);
+    transition: transform 1s ease-out;
+}
+
+.hero-right:hover .hero-img {
+    transform: scale(1.05);
+}
+
+@keyframes revealImage {
+    0% {
+        clip-path: inset(0 100% 0 0);
+    }
+
+    100% {
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+.bronze-text {
+    color: var(--accent-gold);
+    background: linear-gradient(135deg, #e2c08d 0%, #cd7f32 40%, #8b5a2b 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@media (max-width: 768px) {
+    .split-hero {
+        flex-direction: column-reverse;
+    }
+
+    .hero-left,
+    .hero-right {
+        width: 100%;
+        height: 50%;
+    }
+
+    .hero-left {
+        align-items: center;
+        text-align: center;
+        padding: 2rem;
+    }
+}
+
+
 
 /* Hero text must act as if on dark bg */
 .hero h1 {

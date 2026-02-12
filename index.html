@@ -43,13 +43,25 @@
     <div class="string-line"></div>
 
     <!-- Hero Section -->
-    <header class="hero" id="hero">
-        <div class="hero-bg parallax" data-speed="0.2"></div>
-        <div class="hero-content">
-            <h1 class="reveal-text" data-i18n="hero_title">Adil<br><span class="gold-text">Bayramov</span></h1>
-            <p class="subtitle reveal-text" style="transition-delay: 0.2s;" data-i18n="hero_subtitle">The Symphonic Soul
-                of Azerbaijan</p>
+    <!-- Hero Section (Split Screen) -->
+    <header class="hero split-hero" id="hero">
+        <div class="hero-left">
+            <div class="hero-text-container">
+                <h1 class="reveal-text" data-i18n="hero_title">Adil<br><span class="bronze-text">Bayramov</span></h1>
+                <p class="subtitle reveal-text" style="transition-delay: 0.2s;" data-i18n="hero_subtitle">The Symphonic
+                    Soul
+                    of Azerbaijan</p>
+                <div class="hero-actions reveal-text" style="transition-delay: 0.4s;">
+                    <a href="#music" class="gold-btn">Listen Now</a>
+                </div>
+            </div>
         </div>
+        <div class="hero-right">
+            <div class="hero-image-reveal">
+                <img src="assets/hero.png" alt="Adil Bayramov performing" class="hero-img parallax" data-speed="0.1">
+            </div>
+        </div>
+
         <div class="scroll-indicator">
             <div class="arrow"></div>
         </div>
@@ -174,7 +186,7 @@
                 </svg>
 
                 <div class="golden-img-container">
-                    <img src="assets/tar_full_vertical.png" alt="Tar Geometry" class="golden-img">
+                    <img src="assets/hero.png" alt="Tar Geometry" class="golden-img">
                 </div>
 
                 <!-- Technical Specs -->
