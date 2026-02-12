@@ -1955,3 +1955,421 @@ footer {
         gap: 3rem;
     }
 }
+
+/* --- The Golden Ratio (Blueprint) --- */
+.golden-section {
+    background-color: #0b0b0b;
+    overflow: hidden;
+    position: relative;
+    padding: 10rem 0;
+}
+
+.blueprint-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(rgba(212, 175, 55, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(212, 175, 55, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.golden-intro {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 4rem;
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+}
+
+.golden-visual {
+    position: relative;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.golden-img-container {
+    position: relative;
+    z-index: 2;
+    height: 80%;
+    filter: sepia(100%) hue-rotate(5deg) contrast(1.1) brightness(0.8);
+    opacity: 0.8;
+    transition: all 0.5s;
+}
+
+.golden-img-container:hover {
+    filter: none;
+    opacity: 1;
+}
+
+.golden-img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+}
+
+.golden-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    pointer-events: none;
+}
+
+/* Drawing Animations */
+.draw-path,
+.draw-line,
+.draw-circle {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    opacity: 0.6;
+    transition: stroke-dashoffset 2s ease-out, opacity 1s;
+}
+
+.golden-section.active .draw-path,
+.golden-section.active .draw-line,
+.golden-section.active .draw-circle {
+    stroke-dashoffset: 0;
+}
+
+/* Tech Specs */
+.tech-spec {
+    position: absolute;
+    font-family: 'Courier New', monospace;
+    color: var(--accent-gold);
+    font-size: 0.9rem;
+    border-left: 1px solid var(--accent-gold);
+    padding-left: 10px;
+    z-index: 4;
+}
+
+.tech-spec .spec-label {
+    display: block;
+    font-size: 0.7rem;
+    opacity: 0.7;
+    margin-bottom: 2px;
+}
+
+.tech-spec .spec-value {
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* Spec Positions */
+.spec-1 {
+    top: 20%;
+    right: 25%;
+}
+
+.spec-2 {
+    bottom: 30%;
+    left: 25%;
+}
+
+.spec-3 {
+    top: 60%;
+    right: 20%;
+}
+
+@media (max-width: 768px) {
+    .spec-1 {
+        top: 10%;
+        right: 10%;
+    }
+
+    .spec-2 {
+        bottom: 10%;
+        left: 10%;
+    }
+}
+
+/* --- Kinetic Echoes (Press) --- */
+.kinetic-section {
+    padding: 10rem 0;
+    overflow: hidden;
+    background: var(--bg-charcoal);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.kinetic-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    transform: rotate(-2deg);
+    /* Constant dynamic tilt */
+}
+
+.kinetic-band {
+    display: flex;
+    white-space: nowrap;
+    will-change: transform;
+}
+
+.kinetic-text {
+    font-family: var(--font-heading);
+    font-size: clamp(4rem, 10vw, 12rem);
+    line-height: 0.9;
+    padding: 0 2rem;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.kinetic-text.outline {
+    color: transparent;
+    -webkit-text-stroke: 1px var(--text-primary);
+    opacity: 0.5;
+}
+
+/* Hover effect for interactivity */
+.kinetic-container:hover .kinetic-text.outline {
+    -webkit-text-stroke: 1px var(--accent-gold);
+    color: transparent;
+    opacity: 1;
+}
+
+/* --- Vinyl Vault (3D Crate) --- */
+.vault-section {
+    padding: 10rem 0;
+    background: #0f0f0f;
+    perspective: 1000px;
+    overflow: hidden;
+}
+
+.crate-container {
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4rem;
+    position: relative;
+}
+
+.crate-inner {
+    display: flex;
+    gap: -50px;
+    /* Overlap */
+    transform-style: preserve-3d;
+}
+
+.record-sleeve {
+    width: 300px;
+    height: 300px;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transform-origin: bottom center;
+    box-shadow: -5px 5px 20px rgba(0, 0, 0, 0.5);
+    /* Stack effect */
+    margin-left: -150px;
+}
+
+.record-sleeve:first-child {
+    margin-left: 0;
+}
+
+.record-sleeve:hover {
+    transform: translateY(-50px) rotate(-5deg);
+    z-index: 10;
+}
+
+.record-sleeve.active {
+    transform: translateY(-100px) scale(1.1) rotate(0deg);
+    z-index: 100;
+    margin: 0 50px;
+    /* Give it space */
+}
+
+.record-spine {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 100%;
+    background: inherit;
+    filter: brightness(0.8);
+    writing-mode: vertical-rl;
+    text-align: center;
+    color: #fff;
+    font-size: 0.8rem;
+    transform: rotateY(-90deg) translateX(-10px);
+    transform-origin: left;
+    display: none;
+    /* Only need for deep 3d view */
+}
+
+.record-cover {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cover-art {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 20px;
+    z-index: 2;
+    position: relative;
+    background-size: cover;
+}
+
+.cover-art h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+.cover-art p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.vinyl-disc {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 290px;
+    height: 290px;
+    background: #111;
+    border-radius: 50%;
+    z-index: 1;
+    transition: transform 0.8s ease;
+}
+
+.record-sleeve.active .vinyl-disc {
+    transform: translateX(50%);
+    /* Slide out */
+    animation: spin 4s linear infinite;
+}
+
+.disc-grooves {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
+    border: 2px solid #222;
+    box-shadow: 0 0 0 5px #1a1a1a, 0 0 0 10px #222, 0 0 0 15px #1a1a1a;
+    opacity: 0.5;
+}
+
+.disc-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+@keyframes spin {
+    to {
+        transform: translateX(50%) rotate(360deg);
+    }
+}
+
+.vault-instruction {
+    text-align: center;
+    margin-top: 2rem;
+    opacity: 0.5;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.5;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+}
+
+/* --- Meditation Room (Canvas) --- */
+.meditation-section {
+    position: relative;
+    height: 100vh;
+    background: #000;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#fluid-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.6;
+}
+
+.meditation-overlay {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    mix-blend-mode: overlay;
+}
+
+.meditation-controls {
+    margin-top: 2rem;
+}
+
+.breathe-instruction {
+    font-size: 1.2rem;
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
+    color: var(--accent-gold);
+    margin-bottom: 2rem;
+    opacity: 0.8;
+    animation: breathe 8s infinite ease-in-out;
+}
+
+@keyframes breathe {
+
+    0%,
+    100% {
+        opacity: 0.3;
+        transform: scale(0.95);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+}
+
+.meditation-btn {
+    padding: 1rem 3rem;
+    background: transparent;
+    border: 1px solid var(--accent-gold);
+    color: var(--accent-gold);
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.5s;
+    border-radius: 50px;
+}
+
+.meditation-btn:hover {
+    background: var(--accent-gold);
+    color: #000;
+    box-shadow: 0 0 30px var(--accent-gold);
+}

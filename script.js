@@ -706,3 +706,164 @@ styleSheet.innerText = `
 }
 `;
 document.head.appendChild(styleSheet);
+
+// --- Golden Ratio Animation ---
+const goldenSection = document.getElementById('golden-ratio');
+if (goldenSection) {
+    const goldenObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                goldenSection.classList.add('active');
+            }
+        });
+    }, { threshold: 0.3 });
+    goldenObserver.observe(goldenSection);
+}
+
+// --- Kinetic Echoes Animation ---
+const kineticBands = document.querySelectorAll('.kinetic-band');
+let currentScroll = window.pageYOffset;
+let isScrolling = false;
+
+if (kineticBands.length > 0) {
+    window.addEventListener('scroll', () => {
+        const newScroll = window.pageYOffset;
+        const velocity = newScroll - currentScroll;
+        currentScroll = newScroll;
+
+        // Add skew/blur based on velocity
+        kineticBands.forEach(band => {
+            const speed = band.getAttribute('data-speed');
+            const direction = band.getAttribute('data-direction');
+            const move = newScroll * speed * 0.05 * direction;
+
+            // Subtle Skew based on scroll velocity
+            const skew = Math.min(Math.max(velocity * 0.2, -10), 10);
+
+            band.style.transform = `translateX(${move}px) skewX(${skew}deg)`;
+        });
+
+        isScrolling = true;
+        clearTimeout(isScrolling);
+        isScrolling = setTimeout(() => {
+            // Reset skew when stopped
+            kineticBands.forEach(band => {
+                const speed = band.getAttribute('data-speed');
+                const direction = band.getAttribute('data-direction');
+                const move = newScroll * speed * 0.05 * direction;
+                band.style.transition = 'transform 0.5s ease-out';
+                band.style.transform = `translateX(${move}px) skewX(0deg)`;
+
+                setTimeout(() => { band.style.transition = 'none'; }, 500);
+            });
+        }, 100);
+    });
+}
+
+// --- Vinyl Vault Logic ---
+function pullRecord(element) {
+    // Reset others
+    document.querySelectorAll('.record-sleeve').forEach(el => {
+        if (el !== element) el.classList.remove('active');
+    });
+
+    // Toggle current
+    element.classList.toggle('active');
+}
+
+// --- Meditation Room Logic ---
+const canvas = document.getElementById('fluid-canvas');
+const ctx = canvas ? canvas.getContext('2d') : null;
+let meditationActive = false;
+
+if (canvas && ctx) {
+    let width, height;
+    let particles = [];
+
+    function resize() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    class Particle {
+        constructor() {
+            this.x = Math.random() * width;
+            this.y = Math.random() * height;
+            this.vx = (Math.random() - 0.5) * 0.5;
+            this.vy = (Math.random() - 0.5) * 0.5;
+            this.size = Math.random() * 2 + 1;
+            this.color = `rgba(212, 175, 55, ${Math.random() * 0.5})`;
+        }
+
+        update() {
+            this.x += this.vx;
+            this.y += this.vy;
+
+            if (this.x < 0 || this.x > width) this.vx *= -1;
+            if (this.y < 0 || this.y > height) this.vy *= -1;
+        }
+
+        draw() {
+            ctx.fillStyle = this.color;
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fill();
+        }
+    }
+
+    function initParticles() {
+        for (let i = 0; i < 100; i++) {
+            particles.push(new Particle());
+        }
+    }
+    initParticles();
+
+    function animate() {
+        if (!meditationActive) {
+            // Slow ambient movement
+            ctx.clearRect(0, 0, width, height);
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            requestAnimationFrame(animate);
+        } else {
+            // Intense visualizer mode (simulated)
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
+            ctx.fillRect(0, 0, width, height);
+
+            particles.forEach(p => {
+                p.x += (Math.random() - 0.5) * 4;
+                p.y += (Math.random() - 0.5) * 4; // Jitter
+                p.draw();
+            });
+            requestAnimationFrame(animate);
+        }
+    }
+    animate();
+
+    // Button Logic
+    const medBtn = document.getElementById('meditation-btn');
+    const audio = document.getElementById('bg-music');
+
+    if (medBtn && audio) {
+        medBtn.addEventListener('click', () => {
+            meditationActive = !meditationActive;
+            if (meditationActive) {
+                medBtn.textContent = "Exit the Void";
+                audio.play();
+                document.body.style.overflow = 'hidden';
+                canvas.style.opacity = '1';
+                // Scroll to section
+                document.getElementById('soundscape').scrollIntoView({ behavior: 'smooth' });
+            } else {
+                medBtn.textContent = "Enter the Void";
+                audio.pause();
+                document.body.style.overflow = 'auto';
+                canvas.style.opacity = '0.6';
+            }
+        });
+    }
+}

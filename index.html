@@ -146,421 +146,486 @@
         </div>
     </section>
 
-    <!-- Vision / Future -->
-    <section id="vision" class="vision-section">
-        <div class="vision-bg"></div>
-        <div class="container">
-            <h2 class="section-title reveal-text" data-i18n="section_vision">Vision</h2>
-            <div class="glass-cards">
-                <div class="glass-card reveal-text">
-                    <h3 data-i18n="vision_edu_title">Education</h3>
-                    <p data-i18n="vision_edu_text">Passing the torch to the next generation of masters.</p>
+    <!-- NEW SECTION: The Golden Ratio -->
+    <section id="golden-ratio" class="golden-section">
+        <div class="blueprint-grid"></div>
+        <div class="container container-narrow">
+            <h2 class="section-title reveal-text" data-i18n="section_golden">The Golden Geometry</h2>
+            <p class="golden-intro reveal-text">The Tar is not merely an instrument; it is a manifestation of
+                mathematical perfection. Its curves follow the eternal spiral of phi (φ).</p>
+
+            <div class="golden-visual">
+                <!-- SVG Overlay -->
+                <svg class="golden-svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid meet">
+                    <!-- The Golden Spiral -->
+                    <path class="draw-path" d="M 400 300 Q 500 300 500 400 T 400 500 T 300 400 T 400 200 T 600 400"
+                        fill="none" stroke="var(--accent-gold)" stroke-width="1" />
+                    <!-- Geometric Lines -->
+                    <line class="draw-line" x1="100" y1="300" x2="700" y2="300" stroke="var(--accent-gold)"
+                        stroke-width="0.5" stroke-dasharray="5,5" />
+                    <line class="draw-line" x1="400" y1="50" x2="400" y2="550" stroke="var(--accent-gold)"
+                        stroke-width="0.5" stroke-dasharray="5,5" />
+                    <!-- Circles -->
+                    <circle class="draw-circle" cx="400" cy="300" r="100" fill="none" stroke="var(--accent-gold)"
+                        stroke-width="0.5" />
+                    <circle class="draw-circle" cx="400" cy="300" r="220" fill="none" stroke="var(--accent-gold)"
+                        stroke-width="0.5" />
+                </svg>
+
+                <div class="golden-img-container">
+                    <img src="assets/tar_full_vertical.png" alt="Tar Geometry" class="golden-img">
                 </div>
-                <div class="glass-card reveal-text" style="transition-delay: 0.2s;">
-                    <h3 data-i18n="vision_innov_title">Innovation</h3>
-                    <p data-i18n="vision_innov_text">Merging traditional Muğam with contemporary orchestral
-                        arrangements.</p>
+
+                <!-- Technical Specs -->
+                <div class="tech-spec spec-1 reveal-text">
+                    <span class="spec-label">Body Resonance</span>
+                    <span class="spec-value">432 Hz</span>
+                </div>
+                <div class="tech-spec spec-2 reveal-text">
+                    <span class="spec-label">Curve Ratio</span>
+                    <span class="spec-value">1 : 1.618</span>
+                </div>
+                <div class="tech-spec spec-3 reveal-text">
+                    <span class="spec-label">String Tension</span>
+                    <span class="spec-value">18.5 kg</span>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- NEW SECTION: Echoes of the World (Press) -->
-    <section id="press" class="press-section">
-        <div class="marquee-wrapper">
-            <div class="marquee-content">
-                <span class="press-item">"A virtuoso performance that transcends borders." — <span class="gold-text">Le
-                        Monde</span></span>
-                <span class="separator">✦</span>
-                <span class="press-item">"The symphonic soul of the Caspian." — <span class="gold-text">The New York
-                        Times</span></span>
-                <span class="separator">✦</span>
-                <span class="press-item">"Mastery in its purest form." — <span class="gold-text">BBC Radio
-                        3</span></span>
-                <span class="separator">✦</span>
-                <span class="press-item">"Hypnotic and profound." — <span class="gold-text">Deutsche Welle</span></span>
-                <span class="separator">✦</span>
-                <!-- Duplicate for infinite scroll -->
-                <span class="press-item">"A virtuoso performance that transcends borders." — <span class="gold-text">Le
-                        Monde</span></span>
-                <span class="separator">✦</span>
-                <span class="press-item">"The symphonic soul of the Caspian." — <span class="gold-text">The New York
-                        Times</span></span>
-                <span class="separator">✦</span>
+        <!-- Vision / Future -->
+        <section id="vision" class="vision-section">
+            <div class="vision-bg"></div>
+            <div class="container">
+                <h2 class="section-title reveal-text" data-i18n="section_vision">Vision</h2>
+                <div class="glass-cards">
+                    <div class="glass-card reveal-text">
+                        <h3 data-i18n="vision_edu_title">Education</h3>
+                        <p data-i18n="vision_edu_text">Passing the torch to the next generation of masters.</p>
+                    </div>
+                    <div class="glass-card reveal-text" style="transition-delay: 0.2s;">
+                        <h3 data-i18n="vision_innov_title">Innovation</h3>
+                        <p data-i18n="vision_innov_text">Merging traditional Muğam with contemporary orchestral
+                            arrangements.</p>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Music / Discography -->
-    <section id="music" class="music-section">
-        <div class="container">
-            <h2 class="section-title reveal-text" data-i18n="section_discography">Discography</h2>
-            <div class="album-grid">
-                <!-- Album 1 -->
-                <div class="album-card reveal-text">
-                    <div class="vinyl-wrapper">
-                        <div class="vinyl-record">
-                            <div class="vinyl-label" style="background:var(--accent-gold)"></div>
+        <!-- NEW SECTION: Kinetic Echoes (Press) -->
+        <section id="press" class="kinetic-section">
+            <div class="kinetic-container">
+                <!-- Band 1: Slow -->
+                <div class="kinetic-band" data-speed="2" data-direction="1">
+                    <span class="kinetic-text">Virtuoso <span class="outline">Perfection</span> Soul <span
+                            class="outline">Symphony</span></span>
+                    <span class="kinetic-text">Virtuoso <span class="outline">Perfection</span> Soul <span
+                            class="outline">Symphony</span></span>
+                </div>
+                <!-- Band 2: Medium (Reverse) -->
+                <div class="kinetic-band" data-speed="4" data-direction="-1">
+                    <span class="kinetic-text outline">Le Monde</span>
+                    <span class="kinetic-text">The New York Times</span>
+                    <span class="kinetic-text outline">BBC Radio 3</span>
+                    <span class="kinetic-text">Le Monde</span>
+                    <span class="kinetic-text">The New York Times</span>
+                    <span class="kinetic-text outline">BBC Radio 3</span>
+                </div>
+                <!-- Band 3: Fast -->
+                <div class="kinetic-band" data-speed="6" data-direction="1">
+                    <span class="kinetic-text">Hypnotic <span class="outline">Rhythm</span> Ancient <span
+                            class="outline">Future</span></span>
+                    <span class="kinetic-text">Hypnotic <span class="outline">Rhythm</span> Ancient <span
+                            class="outline">Future</span></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEW SECTION: The Vinyl Vault -->
+        <section id="music" class="vault-section">
+            <div class="container">
+                <h2 class="section-title reveal-text" data-i18n="section_discography">The Vinyl Vault</h2>
+                <div class="crate-container perspective-view">
+                    <div class="crate-inner">
+                        <!-- Record 1 -->
+                        <div class="record-sleeve" onclick="pullRecord(this)" style="--i:1; background: #1a1a1a;">
+                            <div class="record-spine">Mugham Echoes</div>
+                            <div class="record-cover">
+                                <div class="cover-art" style="background: linear-gradient(45deg, #1a1a1a, #4a4a4a);">
+                                    <h3>Mugham Echoes</h3>
+                                    <p>2010 • Solo Tar</p>
+                                </div>
+                                <div class="vinyl-disc">
+                                    <div class="disc-grooves"></div>
+                                    <div class="disc-label" style="background: var(--accent-gold);"></div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="album-cover" style="background: linear-gradient(45deg, #1a1a1a, #4a4a4a);">
-                            <span data-i18n="album1_cover">Mugham<br>Echoes</span>
+                        <!-- Record 2 -->
+                        <div class="record-sleeve" onclick="pullRecord(this)" style="--i:2; background: #222;">
+                            <div class="record-spine">Golden Strings</div>
+                            <div class="record-cover">
+                                <div class="cover-art" style="background: linear-gradient(135deg, #B89040, #000);">
+                                    <h3>Golden Strings</h3>
+                                    <p>2018 • Orchestra</p>
+                                </div>
+                                <div class="vinyl-disc">
+                                    <div class="disc-grooves"></div>
+                                    <div class="disc-label" style="background: var(--accent-champagne);"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Record 3 -->
+                        <div class="record-sleeve" onclick="pullRecord(this)" style="--i:3; background: #1a1a1a;">
+                            <div class="record-spine">Caspian Soul</div>
+                            <div class="record-cover">
+                                <div class="cover-art" style="background: linear-gradient(to bottom, #333, #000);">
+                                    <h3>Caspian Soul</h3>
+                                    <p>2021 • Tar & Cello</p>
+                                </div>
+                                <div class="vinyl-disc">
+                                    <div class="disc-grooves"></div>
+                                    <div class="disc-label" style="background: #8A701E;"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="album-info">
-                        <h3 data-i18n="album1_title">Mugham Echoes</h3>
-                        <p data-i18n="album1_meta">2010 • Solo Tar</p>
-                    </div>
                 </div>
+                <p class="vault-instruction">Select a record to listen</p>
+            </div>
+        </section>
 
-                <!-- Album 2 -->
-                <div class="album-card reveal-text" style="transition-delay: 0.2s;">
-                    <div class="vinyl-wrapper">
-                        <div class="vinyl-record">
-                            <div class="vinyl-label" style="background:var(--accent-champagne)"></div>
+        <!-- NEW SECTION: Video Vault -->
+        <section id="videos" class="video-section">
+            <div class="container">
+                <h2 class="section-title reveal-text" data-i18n="section_videos">The Video Vault</h2>
+                <div class="video-grid">
+                    <!-- Video 1 -->
+                    <div class="video-card reveal-text"
+                        onclick="openVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
+                        <div class="video-thumb" style="background-image: url('assets/gallery1.png');">
+                            <div class="play-overlay">▶</div>
                         </div>
-                        <div class="album-cover" style="background: linear-gradient(135deg, #B89040, #000);">
-                            <span data-i18n="album2_cover">Golden<br>Strings</span>
+                        <div class="video-info">
+                            <h3>Live at Royal Albert Hall</h3>
+                            <p>London, 2018</p>
                         </div>
                     </div>
-                    <div class="album-info">
-                        <h3 data-i18n="album2_title">Golden Strings</h3>
-                        <p data-i18n="album2_meta">2018 • Orchestra</p>
+                    <!-- Video 2 -->
+                    <div class="video-card reveal-text"
+                        onclick="openVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"
+                        style="transition-delay: 0.1s;">
+                        <div class="video-thumb" style="background-image: url('assets/hero.png');">
+                            <div class="play-overlay">▶</div>
+                        </div>
+                        <div class="video-info">
+                            <h3>Symphony of the East</h3>
+                            <p>Baku, 2012</p>
+                        </div>
+                    </div>
+                    <!-- Video 3 -->
+                    <div class="video-card reveal-text"
+                        onclick="openVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"
+                        style="transition-delay: 0.2s;">
+                        <div class="video-thumb" style="background-image: url('assets/macro_tar.png');">
+                            <div class="play-overlay">▶</div>
+                        </div>
+                        <div class="video-info">
+                            <h3>Masterclass: The Segah Mode</h3>
+                            <p>Documentary Excerpt</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- NEW SECTION: Video Vault -->
-    <section id="videos" class="video-section">
-        <div class="container">
-            <h2 class="section-title reveal-text" data-i18n="section_videos">The Video Vault</h2>
-            <div class="video-grid">
-                <!-- Video 1 -->
-                <div class="video-card reveal-text"
-                    onclick="openVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-                    <div class="video-thumb" style="background-image: url('assets/gallery1.png');">
-                        <div class="play-overlay">▶</div>
-                    </div>
-                    <div class="video-info">
-                        <h3>Live at Royal Albert Hall</h3>
-                        <p>London, 2018</p>
-                    </div>
+        <!-- Video Modal -->
+        <div id="video-modal" class="video-modal">
+            <span class="video-close" onclick="closeVideoModal()">&times;</span>
+            <div class="video-container">
+                <iframe id="video-frame" src="" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <!-- NEW SECTION: The Meditation Room -->
+        <section id="soundscape" class="meditation-section">
+            <canvas id="fluid-canvas"></canvas>
+            <div class="meditation-overlay">
+                <h2 class="section-title reveal-text" style="color: #fff; text-shadow: 0 0 20px rgba(255,255,255,0.5);">
+                    The Inner Quiet</h2>
+                <div class="meditation-controls">
+                    <p class="breathe-instruction">Breathe. Listen. Be.</p>
+                    <button id="meditation-btn" class="meditation-btn">Enter the Void</button>
                 </div>
-                <!-- Video 2 -->
-                <div class="video-card reveal-text"
-                    onclick="openVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"
-                    style="transition-delay: 0.1s;">
-                    <div class="video-thumb" style="background-image: url('assets/hero.png');">
-                        <div class="play-overlay">▶</div>
-                    </div>
-                    <div class="video-info">
-                        <h3>Symphony of the East</h3>
-                        <p>Baku, 2012</p>
-                    </div>
+            </div>
+        </section>
+
+        <!-- Global Footprint -->
+        <section id="global" class="global-section">
+            <h2 class="section-title">Global Footprint</h2>
+            <div class="map-container">
+                <!-- Stylized World Map SVG -->
+                <svg class="map-svg" viewBox="0 0 1000 500" preserveAspectRatio="xMidYMid slice">
+                    <defs>
+                        <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+                            <feGaussianBlur stdDeviation="2" result="blur" />
+                            <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                        </filter>
+                        <linearGradient id="flightGradient" gradientUnits="userSpaceOnUse">
+                            <stop offset="0%" stop-color="transparent" />
+                            <stop offset="50%" stop-color="var(--accent-gold)" />
+                            <stop offset="100%" stop-color="transparent" />
+                        </linearGradient>
+                    </defs>
+
+                    <!-- Simplified Continents -->
+                    <g class="continents">
+                        <!-- North America -->
+                        <path d="M150,100 L250,80 L320,50 L350,80 L300,150 L250,250 L200,200 L120,150 Z" />
+                        <!-- South America -->
+                        <path d="M260,260 L320,280 L350,380 L300,450 L250,350 L240,280 Z" />
+                        <!-- Europe/Asia/Africa -->
+                        <path
+                            d="M420,120 L480,80 L600,80 L750,100 L850,150 L900,250 L800,350 L700,300 L650,400 L550,420 L480,350 L450,250 L400,200 L420,150 Z" />
+                        <!-- Australia -->
+                        <path d="M800,350 L900,350 L920,420 L820,430 Z" />
+                    </g>
+
+                    <!-- Flight Paths -->
+                    <g class="flight-paths-svg">
+                        <!-- Baku (600, 180) to Paris (480, 140) -->
+                        <path d="M600,180 Q540,100 480,140" class="flight-line" />
+                        <!-- Baku to New York (280, 160) -->
+                        <path d="M600,180 Q440,50 280,160" class="flight-line" />
+                        <!-- Baku to Tokyo (850, 180) -->
+                        <path d="M600,180 Q725,100 850,180" class="flight-line" />
+                    </g>
+                </svg>
+
+                <!-- Interactive Pins -->
+                <div class="map-overlay">
+                    <button class="map-pin" style="top: 36%; left: 60%;" data-city="Baku" data-info="The Origin • 1985">
+                        <div class="pin-pulse"></div>
+                        <div class="pin-core"></div>
+                    </button>
+                    <button class="map-pin" style="top: 28%; left: 48%;" data-city="Paris"
+                        data-info="Symphony Hall • 2005">
+                        <div class="pin-pulse"></div>
+                        <div class="pin-core"></div>
+                    </button>
+                    <button class="map-pin" style="top: 32%; left: 28%;" data-city="New York"
+                        data-info="Carnegie Hall • 2012">
+                        <div class="pin-pulse"></div>
+                        <div class="pin-core"></div>
+                    </button>
+                    <button class="map-pin" style="top: 36%; left: 85%;" data-city="Tokyo"
+                        data-info="Suntory Hall • 2019">
+                        <div class="pin-pulse"></div>
+                        <div class="pin-core"></div>
+                    </button>
                 </div>
-                <!-- Video 3 -->
-                <div class="video-card reveal-text"
-                    onclick="openVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"
-                    style="transition-delay: 0.2s;">
-                    <div class="video-thumb" style="background-image: url('assets/macro_tar.png');">
-                        <div class="play-overlay">▶</div>
+
+                <!-- Tooltip Container -->
+                <div class="map-tooltip">
+                    <h4 class="tooltip-city">City Name</h4>
+                    <p class="tooltip-info">Detail Info</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Upcoming Events -->
+        <section id="events" class="events-section">
+            <div class="container">
+                <h2 class="section-title reveal-text" data-i18n="section_events">The Next Resonance</h2>
+                <div class="events-list">
+                    <!-- Event 1 -->
+                    <div class="event-item reveal-text" style="transition-delay: 0.1s;">
+                        <div class="event-date">
+                            <span class="day">15</span>
+                            <span class="month" data-i18n="month_oct">OCT</span>
+                        </div>
+                        <div class="event-info">
+                            <h3>Royal Albert Hall</h3>
+                            <p class="event-location">LONDON, UK</p>
+                        </div>
+                        <div class="event-action">
+                            <a href="#" class="ticket-btn" data-i18n="btn_tickets">Get Tickets</a>
+                        </div>
                     </div>
-                    <div class="video-info">
-                        <h3>Masterclass: The Segah Mode</h3>
-                        <p>Documentary Excerpt</p>
+
+                    <!-- Event 2 -->
+                    <div class="event-item reveal-text" style="transition-delay: 0.2s;">
+                        <div class="event-date">
+                            <span class="day">22</span>
+                            <span class="month" data-i18n="month_nov">NOV</span>
+                        </div>
+                        <div class="event-info">
+                            <h3>Berlin Philharmonie</h3>
+                            <p class="event-location">BERLIN, DE</p>
+                        </div>
+                        <div class="event-action">
+                            <a href="#" class="ticket-btn" data-i18n="btn_tickets">Get Tickets</a>
+                        </div>
+                    </div>
+
+                    <!-- Event 3 -->
+                    <div class="event-item reveal-text" style="transition-delay: 0.3s;">
+                        <div class="event-date">
+                            <span class="day">05</span>
+                            <span class="month" data-i18n="month_dec">DEC</span>
+                        </div>
+                        <div class="event-info">
+                            <h3>Heydar Aliyev Center</h3>
+                            <p class="event-location" data-i18n="city_baku">BAKU, AZ</p>
+                        </div>
+                        <div class="event-action">
+                            <a href="#" class="ticket-btn" data-i18n="btn_soldout">Sold Out</a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Video Modal -->
-    <div id="video-modal" class="video-modal">
-        <span class="video-close" onclick="closeVideoModal()">&times;</span>
-        <div class="video-container">
-            <iframe id="video-frame" src="" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
-        </div>
-    </div>
-
-    <!-- Soundscape -->
-    <section id="soundscape" class="soundscape-section">
-        <h2 class="section-title" data-i18n="section_soundscape">The Spirit of Muğam</h2>
-        <div class="container">
-            <div class="maqam-grid">
-                <div class="maqam-btn" data-mode="mahur" data-i18n="maqam_mahur">Mahur</div>
-                <div class="maqam-btn" data-mode="shur" data-i18n="maqam_shur">Shur</div>
-                <div class="maqam-btn" data-mode="segah" data-i18n="maqam_segah">Segah</div>
-                <div class="maqam-btn" data-mode="chargah" data-i18n="maqam_chargah">Chargah</div>
+        <!-- Philosophy -->
+        <section id="philosophy" class="philosophy-section">
+            <div class="container">
+                <blockquote class="zen-quote reveal-text">
+                    "<span data-i18n="quote_text">Music is not played with hands.<br> It is played with silence between
+                        the
+                        notes.</span>"
+                    <footer class="gold-text">— Adil Bayramov</footer>
+                </blockquote>
             </div>
-            <div class="visualizer-container">
-                <div class="visualizer-circle"></div>
+        </section>
+
+        <!-- Backstage -->
+        <!-- Backstage (Advanced Gallery) -->
+        <section id="backstage" class="gallery-section">
+            <h2 class="section-title reveal-text" data-i18n="section_gallery">Backstage Chronicles</h2>
+            <div class="container">
+                <div class="gallery-masonry">
+                    <!-- Large Feature -->
+                    <div class="gallery-item large reveal-text" onclick="openLightbox(this)">
+                        <img src="assets/gallery1.png" alt="The Ritual">
+                        <div class="gallery-overlay">
+                            <span class="gallery-caption" data-i18n="gallery_1">The Ritual</span>
+                        </div>
+                    </div>
+                    <!-- Tall Feature -->
+                    <div class="gallery-item tall reveal-text" onclick="openLightbox(this)"
+                        style="transition-delay: 0.1s;">
+                        <img src="assets/hero.png" alt="The Instrument">
+                        <div class="gallery-overlay">
+                            <span class="gallery-caption" data-i18n="gallery_2">The Silence</span>
+                        </div>
+                    </div>
+                    <!-- Standard -->
+                    <div class="gallery-item reveal-text" onclick="openLightbox(this)" style="transition-delay: 0.2s;">
+                        <img src="assets/macro_tar.png" alt="Detail">
+                        <div class="gallery-overlay">
+                            <span class="gallery-caption" data-i18n="gallery_3">Resonance</span>
+                        </div>
+                    </div>
+                    <!-- Using existing assets duplicated for masonry effect placeholders -->
+                    <div class="gallery-item reveal-text" onclick="openLightbox(this)" style="transition-delay: 0.3s;">
+                        <img src="assets/gallery1.png" alt="Performance">
+                        <div class="gallery-overlay">
+                            <span class="gallery-caption" data-i18n="gallery_4">Live in Paris</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Global Footprint -->
-    <section id="global" class="global-section">
-        <h2 class="section-title">Global Footprint</h2>
-        <div class="map-container">
-            <!-- Stylized World Map SVG -->
-            <svg class="map-svg" viewBox="0 0 1000 500" preserveAspectRatio="xMidYMid slice">
-                <defs>
-                    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-                        <feGaussianBlur stdDeviation="2" result="blur" />
-                        <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                    </filter>
-                    <linearGradient id="flightGradient" gradientUnits="userSpaceOnUse">
-                        <stop offset="0%" stop-color="transparent" />
-                        <stop offset="50%" stop-color="var(--accent-gold)" />
-                        <stop offset="100%" stop-color="transparent" />
-                    </linearGradient>
-                </defs>
+        <!-- UI Components -->
+        <!-- Custom Cursor -->
+        <div class="cursor-dot"></div>
+        <div class="cursor-outline"></div>
 
-                <!-- Simplified Continents -->
-                <g class="continents">
-                    <!-- North America -->
-                    <path d="M150,100 L250,80 L320,50 L350,80 L300,150 L250,250 L200,200 L120,150 Z" />
-                    <!-- South America -->
-                    <path d="M260,260 L320,280 L350,380 L300,450 L250,350 L240,280 Z" />
-                    <!-- Europe/Asia/Africa -->
-                    <path
-                        d="M420,120 L480,80 L600,80 L750,100 L850,150 L900,250 L800,350 L700,300 L650,400 L550,420 L480,350 L450,250 L400,200 L420,150 Z" />
-                    <!-- Australia -->
-                    <path d="M800,350 L900,350 L920,420 L820,430 Z" />
-                </g>
-
-                <!-- Flight Paths -->
-                <g class="flight-paths-svg">
-                    <!-- Baku (600, 180) to Paris (480, 140) -->
-                    <path d="M600,180 Q540,100 480,140" class="flight-line" />
-                    <!-- Baku to New York (280, 160) -->
-                    <path d="M600,180 Q440,50 280,160" class="flight-line" />
-                    <!-- Baku to Tokyo (850, 180) -->
-                    <path d="M600,180 Q725,100 850,180" class="flight-line" />
-                </g>
-            </svg>
-
-            <!-- Interactive Pins -->
-            <div class="map-overlay">
-                <button class="map-pin" style="top: 36%; left: 60%;" data-city="Baku" data-info="The Origin • 1985">
-                    <div class="pin-pulse"></div>
-                    <div class="pin-core"></div>
+        <!-- Audio Player Widget -->
+        <div class="audio-widget">
+            <div class="audio-controls">
+                <button id="play-btn" class="play-btn">
+                    <span class="play-icon">▶</span>
+                    <span class="pause-icon">II</span>
                 </button>
-                <button class="map-pin" style="top: 28%; left: 48%;" data-city="Paris" data-info="Symphony Hall • 2005">
-                    <div class="pin-pulse"></div>
-                    <div class="pin-core"></div>
-                </button>
-                <button class="map-pin" style="top: 32%; left: 28%;" data-city="New York"
-                    data-info="Carnegie Hall • 2012">
-                    <div class="pin-pulse"></div>
-                    <div class="pin-core"></div>
-                </button>
-                <button class="map-pin" style="top: 36%; left: 85%;" data-city="Tokyo" data-info="Suntory Hall • 2019">
-                    <div class="pin-pulse"></div>
-                    <div class="pin-core"></div>
-                </button>
+                <div class="audio-info">
+                    <span class="track-name">Golden Strings</span>
+                    <span class="artist-name">Adil Bayramov</span>
+                </div>
+                <div class="visualizer-bars">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
             </div>
-
-            <!-- Tooltip Container -->
-            <div class="map-tooltip">
-                <h4 class="tooltip-city">City Name</h4>
-                <p class="tooltip-info">Detail Info</p>
-            </div>
+            <!-- Hidden Audio Element -->
+            <audio id="bg-music" loop>
+                <source src="assets/audio_sample.mp3" type="audio/mpeg">
+            </audio>
         </div>
-    </section>
 
-    <!-- Upcoming Events -->
-    <section id="events" class="events-section">
-        <div class="container">
-            <h2 class="section-title reveal-text" data-i18n="section_events">The Next Resonance</h2>
-            <div class="events-list">
-                <!-- Event 1 -->
-                <div class="event-item reveal-text" style="transition-delay: 0.1s;">
-                    <div class="event-date">
-                        <span class="day">15</span>
-                        <span class="month" data-i18n="month_oct">OCT</span>
-                    </div>
-                    <div class="event-info">
-                        <h3>Royal Albert Hall</h3>
-                        <p class="event-location">LONDON, UK</p>
-                    </div>
-                    <div class="event-action">
-                        <a href="#" class="ticket-btn" data-i18n="btn_tickets">Get Tickets</a>
-                    </div>
+        <!-- Lightbox Modal -->
+        <div id="lightbox" class="lightbox">
+            <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+            <img id="lightbox-img" class="lightbox-content">
+            <div id="lightbox-caption" class="lightbox-caption"></div>
+        </div>
+
+        <!-- NEW SECTION: Masterclass -->
+        <section id="masterclass" class="masterclass-section">
+            <div class="container masterclass-container">
+                <div class="masterclass-image reveal-text">
+                    <img src="assets/legacy_archive.png" alt="Masterclass">
                 </div>
-
-                <!-- Event 2 -->
-                <div class="event-item reveal-text" style="transition-delay: 0.2s;">
-                    <div class="event-date">
-                        <span class="day">22</span>
-                        <span class="month" data-i18n="month_nov">NOV</span>
-                    </div>
-                    <div class="event-info">
-                        <h3>Berlin Philharmonie</h3>
-                        <p class="event-location">BERLIN, DE</p>
-                    </div>
-                    <div class="event-action">
-                        <a href="#" class="ticket-btn" data-i18n="btn_tickets">Get Tickets</a>
-                    </div>
-                </div>
-
-                <!-- Event 3 -->
-                <div class="event-item reveal-text" style="transition-delay: 0.3s;">
-                    <div class="event-date">
-                        <span class="day">05</span>
-                        <span class="month" data-i18n="month_dec">DEC</span>
-                    </div>
-                    <div class="event-info">
-                        <h3>Heydar Aliyev Center</h3>
-                        <p class="event-location" data-i18n="city_baku">BAKU, AZ</p>
-                    </div>
-                    <div class="event-action">
-                        <a href="#" class="ticket-btn" data-i18n="btn_soldout">Sold Out</a>
-                    </div>
+                <div class="masterclass-content reveal-text">
+                    <h2 class="section-title" style="text-align: left;" data-i18n="section_masterclass">Masterclass</h2>
+                    <p data-i18n="masterclass_text">Join Adil Bayramov for an immersive journey into the philosophy and
+                        technique of the Tar. Open to advanced students and conservatories worldwide.</p>
+                    <ul class="masterclass-list">
+                        <li data-i18n="masterclass_li1">Traditional Muğam Theory</li>
+                        <li data-i18n="masterclass_li2">Advanced Picking Techniques</li>
+                        <li data-i18n="masterclass_li3">Orchestral Improvisation</li>
+                    </ul>
+                    <a href="#contact" class="gold-btn" data-i18n="btn_apply">Apply Now</a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Philosophy -->
-    <section id="philosophy" class="philosophy-section">
-        <div class="container">
-            <blockquote class="zen-quote reveal-text">
-                "<span data-i18n="quote_text">Music is not played with hands.<br> It is played with silence between the
-                    notes.</span>"
-                <footer class="gold-text">— Adil Bayramov</footer>
-            </blockquote>
-        </div>
-    </section>
-
-    <!-- Backstage -->
-    <!-- Backstage (Advanced Gallery) -->
-    <section id="backstage" class="gallery-section">
-        <h2 class="section-title reveal-text" data-i18n="section_gallery">Backstage Chronicles</h2>
-        <div class="container">
-            <div class="gallery-masonry">
-                <!-- Large Feature -->
-                <div class="gallery-item large reveal-text" onclick="openLightbox(this)">
-                    <img src="assets/gallery1.png" alt="The Ritual">
-                    <div class="gallery-overlay">
-                        <span class="gallery-caption" data-i18n="gallery_1">The Ritual</span>
+        <footer id="contact">
+            <div class="footer-container">
+                <div class="footer-info reveal-text">
+                    <h3 data-i18n="footer_contact">Contact</h3>
+                    <p data-i18n="footer_text">For booking inquiries, masterclasses, and orchestral collaborations.</p>
+                    <p style="margin-top: 2rem; color: var(--accent-gold);">booking@adilbayramov.art</p>
+                    <p>+994 50 123 45 67</p>
+                    <div class="social-links" style="margin-top: 2rem; opacity: 0.5;">
+                        <p data-i18n="footer_cities">Baku • Paris • New York</p>
                     </div>
                 </div>
-                <!-- Tall Feature -->
-                <div class="gallery-item tall reveal-text" onclick="openLightbox(this)" style="transition-delay: 0.1s;">
-                    <img src="assets/hero.png" alt="The Instrument">
-                    <div class="gallery-overlay">
-                        <span class="gallery-caption" data-i18n="gallery_2">The Silence</span>
+
+                <form class="contact-form reveal-text" style="transition-delay: 0.2s;">
+                    <div class="form-group">
+                        <input type="text" placeholder="Name" required data-i18n-placeholder="form_name">
                     </div>
-                </div>
-                <!-- Standard -->
-                <div class="gallery-item reveal-text" onclick="openLightbox(this)" style="transition-delay: 0.2s;">
-                    <img src="assets/macro_tar.png" alt="Detail">
-                    <div class="gallery-overlay">
-                        <span class="gallery-caption" data-i18n="gallery_3">Resonance</span>
+                    <div class="form-group">
+                        <input type="email" placeholder="Email" required data-i18n-placeholder="form_email">
                     </div>
-                </div>
-                <!-- Using existing assets duplicated for masonry effect placeholders -->
-                <div class="gallery-item reveal-text" onclick="openLightbox(this)" style="transition-delay: 0.3s;">
-                    <img src="assets/gallery1.png" alt="Performance">
-                    <div class="gallery-overlay">
-                        <span class="gallery-caption" data-i18n="gallery_4">Live in Paris</span>
+                    <div class="form-group">
+                        <textarea rows="4" placeholder="Message" required
+                            data-i18n-placeholder="form_message"></textarea>
                     </div>
-                </div>
+                    <button type="submit" class="submit-btn" data-i18n="form_send">Send Message</button>
+                </form>
             </div>
-        </div>
-    </section>
-
-    <!-- UI Components -->
-    <!-- Custom Cursor -->
-    <div class="cursor-dot"></div>
-    <div class="cursor-outline"></div>
-
-    <!-- Audio Player Widget -->
-    <div class="audio-widget">
-        <div class="audio-controls">
-            <button id="play-btn" class="play-btn">
-                <span class="play-icon">▶</span>
-                <span class="pause-icon">II</span>
-            </button>
-            <div class="audio-info">
-                <span class="track-name">Golden Strings</span>
-                <span class="artist-name">Adil Bayramov</span>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Adil Bayramov. <span data-i18n="footer_rights">All Rights Reserved.</span></p>
             </div>
-            <div class="visualizer-bars">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-            </div>
-        </div>
-        <!-- Hidden Audio Element -->
-        <audio id="bg-music" loop>
-            <source src="assets/audio_sample.mp3" type="audio/mpeg">
-        </audio>
-    </div>
+        </footer>
 
-    <!-- Lightbox Modal -->
-    <div id="lightbox" class="lightbox">
-        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
-        <img id="lightbox-img" class="lightbox-content">
-        <div id="lightbox-caption" class="lightbox-caption"></div>
-    </div>
-
-    <!-- NEW SECTION: Masterclass -->
-    <section id="masterclass" class="masterclass-section">
-        <div class="container masterclass-container">
-            <div class="masterclass-image reveal-text">
-                <img src="assets/legacy_archive.png" alt="Masterclass">
-            </div>
-            <div class="masterclass-content reveal-text">
-                <h2 class="section-title" style="text-align: left;" data-i18n="section_masterclass">Masterclass</h2>
-                <p data-i18n="masterclass_text">Join Adil Bayramov for an immersive journey into the philosophy and
-                    technique of the Tar. Open to advanced students and conservatories worldwide.</p>
-                <ul class="masterclass-list">
-                    <li data-i18n="masterclass_li1">Traditional Muğam Theory</li>
-                    <li data-i18n="masterclass_li2">Advanced Picking Techniques</li>
-                    <li data-i18n="masterclass_li3">Orchestral Improvisation</li>
-                </ul>
-                <a href="#contact" class="gold-btn" data-i18n="btn_apply">Apply Now</a>
-            </div>
-        </div>
-    </section>
-
-    <footer id="contact">
-        <div class="footer-container">
-            <div class="footer-info reveal-text">
-                <h3 data-i18n="footer_contact">Contact</h3>
-                <p data-i18n="footer_text">For booking inquiries, masterclasses, and orchestral collaborations.</p>
-                <p style="margin-top: 2rem; color: var(--accent-gold);">booking@adilbayramov.art</p>
-                <p>+994 50 123 45 67</p>
-                <div class="social-links" style="margin-top: 2rem; opacity: 0.5;">
-                    <p data-i18n="footer_cities">Baku • Paris • New York</p>
-                </div>
-            </div>
-
-            <form class="contact-form reveal-text" style="transition-delay: 0.2s;">
-                <div class="form-group">
-                    <input type="text" placeholder="Name" required data-i18n-placeholder="form_name">
-                </div>
-                <div class="form-group">
-                    <input type="email" placeholder="Email" required data-i18n-placeholder="form_email">
-                </div>
-                <div class="form-group">
-                    <textarea rows="4" placeholder="Message" required data-i18n-placeholder="form_message"></textarea>
-                </div>
-                <button type="submit" class="submit-btn" data-i18n="form_send">Send Message</button>
-            </form>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Adil Bayramov. <span data-i18n="footer_rights">All Rights Reserved.</span></p>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
+        <script src="script.js"></script>
 </body>
 
 </html>
