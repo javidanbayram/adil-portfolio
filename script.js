@@ -296,7 +296,37 @@ document.addEventListener('DOMContentLoaded', () => {
             form_name: "Adınız",
             form_email: "E-poçt",
             form_message: "Mesajınız",
-            form_send: "Mesaj Göndər"
+            form_send: "Mesaj Göndər",
+
+            // --- New Sections (Golden Ratio, Kinetic, Vinyl, Meditation) ---
+            section_golden: "Qızıl Həndəsə",
+            golden_intro: "Tar sadəcə bir alət deyil; o, riyazi mükəmməlliyin təzahürüdür. Onun əyriləri əbədi fi (φ) spiralını izləyir.",
+            golden_spec1_label: "Bədən Rezonansı",
+            golden_spec1_value: "432 Hz",
+            golden_spec2_label: "Əyrilik Nisbəti",
+            golden_spec2_value: "1 : 1.618",
+            golden_spec3_label: "Sim Gərginliyi",
+            golden_spec3_value: "18.5 kq",
+
+            kinetic_band1: "Virtuoz <span class='outline'>Mükəmməllik</span> Ruh <span class='outline'>Simfoniyası</span>",
+            kinetic_band2_1: "Le Monde",
+            kinetic_band2_2: "The New York Times",
+            kinetic_band2_3: "BBC Radio 3",
+            kinetic_band3: "Hipnotik <span class='outline'>Ritm</span> Qədim <span class='outline'>Gələcək</span>",
+
+            vault_instruction: "Dinləmək üçün plastinka seçin",
+
+            section_videos: "Video Arxivi",
+            video1_title: "Royal Albert Hall-da Canlı",
+            video1_subtitle: "London, 2018",
+            video2_title: "Şərq Simfoniyası",
+            video2_subtitle: "Bakı, 2012",
+            video3_title: "Ustad Dərsi: Segah",
+            video3_subtitle: "Sənədli Filmdən Parça",
+
+            meditation_title: "Daxili Sükut",
+            meditation_text: "Nəfəs al. Dinlə. Ol.",
+            meditation_btn: "Boşluğa Daxil Ol"
         },
         en: {
             nav_legacy: "Legacy",
@@ -362,7 +392,37 @@ document.addEventListener('DOMContentLoaded', () => {
             form_name: "Name",
             form_email: "Email",
             form_message: "Message",
-            form_send: "Send Message"
+            form_send: "Send Message",
+
+            // --- New Sections (Golden Ratio, Kinetic, Vinyl, Meditation) ---
+            section_golden: "The Golden Geometry",
+            golden_intro: "The Tar is not merely an instrument; it is a manifestation of mathematical perfection. Its curves follow the eternal spiral of phi (φ).",
+            golden_spec1_label: "Body Resonance",
+            golden_spec1_value: "432 Hz",
+            golden_spec2_label: "Curve Ratio",
+            golden_spec2_value: "1 : 1.618",
+            golden_spec3_label: "String Tension",
+            golden_spec3_value: "18.5 kg",
+
+            kinetic_band1: "Virtuoso <span class='outline'>Perfection</span> Soul <span class='outline'>Symphony</span>",
+            kinetic_band2_1: "Le Monde",
+            kinetic_band2_2: "The New York Times",
+            kinetic_band2_3: "BBC Radio 3",
+            kinetic_band3: "Hypnotic <span class='outline'>Rhythm</span> Ancient <span class='outline'>Future</span>",
+
+            vault_instruction: "Select a record to listen",
+
+            section_videos: "The Video Vault",
+            video1_title: "Live at Royal Albert Hall",
+            video1_subtitle: "London, 2018",
+            video2_title: "Symphony of the East",
+            video2_subtitle: "Baku, 2012",
+            video3_title: "Masterclass: The Segah Mode",
+            video3_subtitle: "Documentary Excerpt",
+
+            meditation_title: "The Inner Quiet",
+            meditation_text: "Breathe. Listen. Be.",
+            meditation_btn: "Enter the Void"
         },
         ru: {
             nav_legacy: "Наследие",
@@ -428,7 +488,37 @@ document.addEventListener('DOMContentLoaded', () => {
             form_name: "Имя",
             form_email: "Эл. почта",
             form_message: "Сообщение",
-            form_send: "Отправить"
+            form_send: "Отправить",
+
+            // --- New Sections (Golden Ratio, Kinetic, Vinyl, Meditation) ---
+            section_golden: "Золотая Геометрия",
+            golden_intro: "Тар — это не просто инструмент, это проявление математического совершенства. Его изгибы следуют вечной спирали фи (φ).",
+            golden_spec1_label: "Резонанс Корпуса",
+            golden_spec1_value: "432 Гц",
+            golden_spec2_label: "Коэффициент Изгиба",
+            golden_spec2_value: "1 : 1.618",
+            golden_spec3_label: "Натяжение Струн",
+            golden_spec3_value: "18.5 кг",
+
+            kinetic_band1: "Виртуозное <span class='outline'>Совершенство</span> Симфония <span class='outline'>Души</span>",
+            kinetic_band2_1: "Le Monde",
+            kinetic_band2_2: "The New York Times",
+            kinetic_band2_3: "BBC Radio 3",
+            kinetic_band3: "Гипнотический <span class='outline'>Ритм</span> Древнее <span class='outline'>Будущее</span>",
+
+            vault_instruction: "Выберите пластинку для прослушивания",
+
+            section_videos: "Видео Архив",
+            video1_title: "Концерт в Royal Albert Hall",
+            video1_subtitle: "Лондон, 2018",
+            video2_title: "Симфония Востока",
+            video2_subtitle: "Баку, 2012",
+            video3_title: "Мастер-класс: Сегах",
+            video3_subtitle: "Отрывок из документального фильма",
+
+            meditation_title: "Внутренняя Тишина",
+            meditation_text: "Дыши. Слушай. Будь.",
+            meditation_btn: "Войти в Пустоту"
         }
     };
 
